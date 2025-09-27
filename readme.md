@@ -29,12 +29,13 @@ These instructions will help you set up and run the project on your local machin
 
    * Open the project in VS Code.
    * Install the **Live Server** extension.
+   * Right-click `Data.html` to load startup data into localStorage (First time or login fails).
    * Right-click `index.html` → **Open with Live Server**.
 
 3. **If you don’t have VS Code:**
 
    * Simply open the files directly in your browser.
-   * First, double-click `Data.html` to load startup data into localStorage.
+   * First, double-click `Data.html` to load startup data into localStorage (FIrst time or login fails).
    * Then, double-click `index.html` to launch the app.
 
 Example: After running `Data.html`, open Developer Tools → Application → Local Storage to see the loaded users, doctors, and patients.
