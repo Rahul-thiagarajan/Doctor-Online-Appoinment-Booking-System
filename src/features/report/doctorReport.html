@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GENCARE - Reports</title>
+  <link rel="icon" type="image/png" href="../../assets/logo/LogoSmall.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-sky-100 to-white min-h-screen font-poppins">
+  <!-- Fixed Left Sidebar -->
+  <div class="flex flex-col fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-sky-700 via-sky-600 to-sky-800 shadow-xl z-50">
+    <div class="px-6 py-3 border-b border-sky-500/30">
+      <div class="flex items-center gap-3">
+        <img src="../../assets/logo/LogoSmall.png" class="w-12 h-12">
+        <h1 class="text-xl font-bold text-white">GENCARE</h1>
+      </div>
+    </div>
+    <nav class="flex flex-col px-4 mt-1">
+      <div onclick="window.location.href='../dashboard/doctorDashboard.html'" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5v4"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 5v4"/></svg>Dashboard</div>
+      <div onclick="window.location.href='../scheduleManagement/doctorSchedule.html'" class="px-4 py-3 text-sky-100 rounded-xl hover:bg_white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Schedule Management</div>
+      <div onclick="window.location.href='../appointmentBooking/doctorAppointment.html'" class="px-4 py-3 text-sky-100 rounded-xl hover:bg_white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>Appointments</div>
+      <div onclick="window.location.href='../reviews/doctorReview.html'" class="px-4 py-3 text-sky-100 rounded-xl hover:bg_white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>Reviews</div>
+      <div class="px-4 py-3 bg-white/20 text-white rounded-xl shadow-md backdrop-blur-sm font-medium flex items-center gap-3 cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V5a2 2 0 012-2h6a2 2 0 012 2v14m-6 0H7a2 2 0 01-2-2v-5"/></svg>Report</div>
+    </nav>
+    
+    <div class="absolute bottom-0 left-0 right-0 p-4 border-sky-500/30">
+      <button class="flex gap-1 text-sky-100 items-center w-full px-6 py-2 rounded-xl hover:bg_white/20 hover:text-white hover:bg-white/20 my-2 hover:shadow-md transition-all duration-300 cursor-pointer"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Help</button>
+      <div class="relative">
+        <div id="profileButton" class="w-full flex items-center gap-3 p-3 bg-white/20 rounded-xl backdrop-blur-sm cursor-pointer hover:bg-white/30 transition-all duration-300">
+          <div class="w-10 h-10 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+          </div>
+          <div class="text-white font-medium">Doctor</div>
+          <svg class="w-4 h-4 text-white ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        
+        <div id="profileDropdown" class="hidden absolute bottom-16 left-0 right-0 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+          <button onclick="window.location.href='../profile/doctorProfile.html'" class="w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-50 transition-colors duration-200 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            Profile
+          </button>
+          <button onclick="logout()" class="w-full px-4 py-2 text-left text-red-600 hover:bg-red-50 transition-colors duration-200 flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Title shifted for sidebar -->
+  <div class="ml-64">
+  <div class="px-8 py-4 mb-2">
+    <h1 class="text-3xl font-bold text-gray-800">Patient Reports</h1>
+    <p class="text-gray-600">Filter, explore, and export your patients' reports</p>
+  </div>
+
+  <!-- Main Content -->
+  <div class="px-8 pb-8">
+    
+    <!-- Filter Patients -->
+    <div class="bg-white/50 backdrop-blur-md rounded-xl p-4 shadow mb-4">
+      <h2 class="text-lg font-semibold mb-3">Filter Patients</h2>
+      <div class="grid grid-cols-6 gap-3">
+        <input placeholder="Patient Name" class="border bg-white rounded-lg p-2 text-sm col-span-2 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-300">
+        <input placeholder="Age" type="number" class="border bg-white rounded-lg p-2 text-sm focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-300">
+        <input placeholder="Patient ID" class="border text-black bg-white rounded-lg p-2 text-sm focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-300">
+        <select class="border bg-white rounded-lg p-2 text-sm focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-300">
+          <option>Gender</option><option>Male</option><option>Female</option><option>Other</option>
+        </select>
+        <input type="date" placeholder="Appointment Date" class="border rounded-lg p-2 text-sm focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-300">
+        <select class="border bg-white rounded-lg p-2 text-sm focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-300">
+          <option>Appointment Status</option><option>Completed</option><option>Scheduled</option><option>Cancelled</option><option>No Show</option>
+        </select>
+        <input placeholder="Diagnosis" class="border bg-white rounded-lg p-2 text-sm col-span-2 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-300">
+        <input type="date" placeholder="From Date" class="border rounded-lg p-2 text-sm focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-300">
+        <input type="date" placeholder="To Date" class="border rounded-lg p-2 text-sm focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-300">
+      </div>
+      <div class="flex gap-3 justify-end mt-4">
+        <button class="bg-sky-600 text-white px-6 py-2.5 rounded-lg hover:bg-sky-700 hover:scale-105 hover:shadow-lg transition-all duration-300 transform flex items-center gap-2 font-medium">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          Search
+        </button>
+        <button class="bg-gray-200 text-gray-700 px-6 py-2.5 rounded-lg hover:bg-gray-300 hover:scale-105 hover:shadow-lg transition-all duration-300 transform flex items-center gap-2 font-medium">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+          Clear
+        </button>
+        <button class="bg-green-500 text-white px-6 py-2.5 rounded-lg hover:bg-green-600 hover:scale-105 hover:shadow-lg transition-all duration-300 transform flex items-center gap-2 font-medium">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          Export
+        </button>
+        <button class="bg-purple-500 text-white px-6 py-2.5 rounded-lg hover:bg-purple-600 hover:scale-105 hover:shadow-lg transition-all duration-300 transform flex items-center gap-2 font-medium">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+          </svg>
+          Print
+        </button>
+      </div>
+    </div>
+
+    <!-- Patient Table -->
+    <div class="bg-white/50 backdrop-blur-md rounded-xl shadow overflow-hidden hover:shadow-lg transition-all duration-300">
+      <table class="min-w-full text-sm">
+        <thead class="bg-sky-600 text-white">
+          <tr>
+            <th class="px-4 py-3 text-left">Appointment ID</th>
+            <th class="px-4 py-3 text-left">Patient ID</th>
+            <th class="px-4 py-3 text-left">Patient Name</th>
+            <th class="px-4 py-3 text-left">Age</th>
+            <th class="px-4 py-3 text-left">Gender</th>
+            <th class="px-4 py-3 text-left">Date</th>
+            <th class="px-4 py-3 text-left">Time</th>
+            <th class="px-4 py-3 text-left">Status</th>
+            <th class="px-4 py-3 text-left">Diagnosis</th>
+            <th class="px-4 py-3 text-left">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="patientTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex justify-between items-center mt-6 px-4">
+      <div class="text-sm text-gray-600">
+        Showing <span id="currentRange">1-8</span> of <span id="totalPatients">25</span> patients
+      </div>
+      <div class="flex gap-2">
+        <button class="px-4 py-2 text-gray-600 hover:text-sky-700 transition-all duration-300 text-sm">Previous</button>
+        <button class="px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-medium">1</button>
+        <button class="px-4 py-2 text-gray-600 hover:text-sky-700 transition-all duration-300 text-sm">2</button>
+        <button class="px-4 py-2 text-gray-600 hover:text-sky-700 transition-all duration-300 text-sm">3</button>
+        <button class="px-4 py-2 text-gray-600 hover:text-sky-700 transition-all duration-300 text-sm">Next</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    function logout(){
+      const confirmed = confirm("Are you sure you want to log out?");
+      if(confirmed){
+        window.location.href="../../../index.html"
+      }
+    }
+    // Sample Patients Data for Doctor's Report
+    const patients = [
+      {apptId:'A101', patientId:'P001', name:'John Smith', age: 45, gender: 'Male', date:'2024-09-20', time:'10:00 AM', status:'Completed', diagnosis:'Hypertension'},
+      {apptId:'A102', patientId:'P002', name:'Sarah Wilson', age: 32, gender: 'Female', date:'2024-09-21', time:'11:30 AM', status:'Completed', diagnosis:'Diabetes Type 2'},
+      {apptId:'A103', patientId:'P003', name:'Michael Brown', age: 28, gender: 'Male', date:'2024-09-21', time:'2:15 PM', status:'Scheduled', diagnosis:'Follow-up'},
+      {apptId:'A104', patientId:'P004', name:'Emma Davis', age: 55, gender: 'Female', date:'2024-09-22', time:'9:00 AM', status:'Scheduled', diagnosis:'Chest Pain'},
+      {apptId:'A105', patientId:'P005', name:'Robert Johnson', age: 38, gender: 'Male', date:'2024-09-18', time:'3:30 PM', status:'Completed', diagnosis:'Migraine'},
+      {apptId:'A106', patientId:'P006', name:'Lisa Anderson', age: 42, gender: 'Female', date:'2024-09-19', time:'1:00 PM', status:'Completed', diagnosis:'Arthritis'},
+      {apptId:'A107', patientId:'P007', name:'David Miller', age: 60, gender: 'Male', date:'2024-09-17', time:'4:00 PM', status:'No Show', diagnosis:'Cardiac Check'},
+      {apptId:'A108', patientId:'P008', name:'Jennifer Taylor', age: 29, gender: 'Female', date:'2024-09-23', time:'10:30 AM', status:'Scheduled', diagnosis:'Pregnancy Check'}
+    ];
+
+    const patientBody = document.getElementById('patientTableBody');
+    patients.forEach(pt => {
+      const tr = document.createElement('tr');
+      tr.className = "hover:bg-sky-50 hover:scale-[1.01] transition-all duration-300 transform";
+      
+      // Status styling
+      let statusClass = '';
+      switch(pt.status) {
+        case 'Completed':
+          statusClass = 'bg-green-100 text-green-800';
+          break;
+        case 'Scheduled':
+          statusClass = 'bg-blue-100 text-blue-800';
+          break;
+        case 'Cancelled':
+          statusClass = 'bg-red-100 text-red-800';
+          break;
+        case 'No Show':
+          statusClass = 'bg-gray-100 text-gray-800';
+          break;
+      }
+      
+      tr.innerHTML = `
+        <td class="px-4 py-3 font-medium">${pt.apptId}</td>
+        <td class="px-4 py-3">${pt.patientId}</td>
+        <td class="px-4 py-3 font-medium">${pt.name}</td>
+        <td class="px-4 py-3">${pt.age}</td>
+        <td class="px-4 py-3">${pt.gender}</td>
+        <td class="px-4 py-3">${pt.date}</td>
+        <td class="px-4 py-3">${pt.time}</td>
+        <td class="px-4 py-3"><span class="px-2 py-1 rounded-full text-xs font-medium ${statusClass}">${pt.status}</span></td>
+        <td class="px-4 py-3">${pt.diagnosis}</td>
+        <td class="px-4 py-3 flex gap-2">
+          <button class="p-1 hover:bg-sky-100 rounded transition-all duration-300" title="View Details">
+            <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+          </button>
+          <button class="p-1 hover:bg-green-100 rounded transition-all duration-300" title="Download Report">
+            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </button>
+        </td>`;
+      patientBody.appendChild(tr);
+    });
+
+    // Profile dropdown functionality
+    document.getElementById("profileButton").addEventListener("click", (e) => {
+      e.stopPropagation();
+      document.getElementById("profileDropdown").classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", () => {
+      document.getElementById("profileDropdown").classList.add("hidden");
+    });
+
+    // Search functionality
+    document.querySelector('.bg-sky-600').addEventListener('click', () => {
+      console.log('Search patients');
+      // Add search logic here
+    });
+
+    // Clear functionality
+    document.querySelector('.bg-gray-200').addEventListener('click', () => {
+      const inputs = document.querySelectorAll('input');
+      const selects = document.querySelectorAll('select');
+      inputs.forEach(input => input.value = '');
+      selects.forEach(select => select.selectedIndex = 0);
+    });
+
+    // Export functionality
+    document.querySelector('.bg-green-500').addEventListener('click', () => {
+      console.log('Export patient data');
+      // Add export logic here
+    });
+
+    // Print functionality
+    document.querySelector('.bg-purple-500').addEventListener('click', () => {
+      window.print();
+    });
+
+  </script>
+
+</body>
+</html>

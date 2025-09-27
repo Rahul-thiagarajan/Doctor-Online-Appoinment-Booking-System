@@ -1,0 +1,158 @@
+<html>
+    <body>
+        <script>
+
+
+//Run this code if you are running the application in a new domain so that basic details can be added to the local storage
+// Array of 3 patients
+let patients = [
+  {
+    patientId: "P0001",
+    patientName: "Rahul",
+    patientAge: 24,
+    gender: "Male",
+    bloodgroup: "A+ve",
+    appointments: []
+  },
+  {
+    patientId: "P0002",
+    patientName: "Ananya",
+    patientAge: 30,
+    gender: "Female",
+    bloodgroup: "B+ve",
+    appointments: []
+  },
+  {
+    patientId: "P0003",
+    patientName: "Karan",
+    patientAge: 28,
+    gender: "Male",
+    bloodgroup: "O+ve",
+    appointments: []
+  }
+];
+
+localStorage.setItem("patients", JSON.stringify(patients));
+
+
+
+
+// Array of 3 doctors
+let doctors = [
+  {
+    doctorId: "D101",
+    doctorName: "Dr. Shantha Kumar",
+    designation: "Chief Doctor",
+    department: "Pediatrics",
+    age: 45,
+    gender: "Male",
+    experience: "12 years",
+    rating: 1,
+    about: "Dr. Shantha Kumar is an experienced pediatrician who has been providing compassionate care for children for over a decade. He focuses on holistic growth and preventive care.",
+    reviews: [
+      { user: "User 1", comment: "Very kind and attentive with children." },
+      { user: "User 2", comment: "Explains everything clearly to parents." }
+    ],
+    achievements: [
+      "Gold Medalist in Pediatrics, AIIMS",
+      "Published 10+ research papers in reputed journals",
+      "Guest Speaker at National Pediatric Conference 2023"
+    ],
+    slots: [],
+    appointments: []
+  },
+  {
+    doctorId: "D102",
+    doctorName: "Dr. Meera Nair",
+    designation: "Senior Consultant",
+    department: "Cardiology",
+    age: 50,
+    gender: "Female",
+    experience: "18 years",
+    rating: 2,
+    about: "Dr. Meera Nair is a renowned cardiologist with expertise in preventive cardiology and complex procedures. She is known for her patient-centered approach.",
+    reviews: [
+      { user: "User 3", comment: "Extremely knowledgeable and professional." },
+      { user: "User 4", comment: "Made me feel at ease during treatment." }
+    ],
+    achievements: [
+      "Fellowship in Interventional Cardiology, USA",
+      "Authored a textbook on Cardiac Care",
+      "Keynote Speaker at International Cardiology Summit 2024"
+    ],
+    slots: [],
+    appointments: []
+  },
+  {
+    doctorId: "D103",
+    doctorName: "Dr. Arjun Rao",
+    designation: "Consultant",
+    department: "Orthopedics",
+    age: 38,
+    gender: "Male",
+    experience: "10 years",
+    rating: 3,
+    about: "Dr. Arjun Rao specializes in joint replacement and sports injuries. His patient-first approach and precision in surgeries have earned him wide respect.",
+    reviews: [
+      { user: "User 5", comment: "Explained my knee surgery in detail." },
+      { user: "User 6", comment: "Helped me recover quickly after fracture." }
+    ],
+    achievements: [
+      "Certified in Advanced Orthopedic Surgery",
+      "Conducted workshops on Sports Injury Rehabilitation",
+      "Awarded Best Orthopedic Specialist 2022"
+    ],
+    slots: [],
+    appointments: []
+  }
+];
+localStorage.setItem("doctors", JSON.stringify(doctors));
+let storedDoctors = JSON.parse(localStorage.getItem("doctors"));
+console.log(storedDoctors);
+
+// Users array
+let users = [
+  {
+    id: "AD01",
+    email: "admin1@gencare.com",
+    password: "Admin@123",
+    role: "Admin"
+  },
+  {
+    id: "D101",
+    email: "doctor1@gencare.com",
+    password: "Doc@123",
+    role: "Doctor"
+  },
+  {
+    id: "D102",
+    email: "doctor2@gencare.com",
+    password: "Doc@123",
+    role: "Doctor"
+  },
+  {
+    id: "P0001",
+    email: "patient1@gencare.com",
+    password: "Pat@123",
+    role: "Patient"
+  },
+  {
+    id: "P0002",
+    email: "patient2@gencare.com",
+    password: "Pat@123",
+    role: "Patient"
+  },
+  {
+    id: "P0003",
+    email: "patient3@gencare.com",
+    password: "Pat@123",
+    role: "Patient"
+  }
+];
+localStorage.setItem("users", JSON.stringify(users));
+let storedUsers = JSON.parse(localStorage.getItem("users"));
+console.log(storedUsers);
+
+        </script>
+    </body>
+</html>

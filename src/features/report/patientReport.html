@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GENCARE - Reports</title>
+  <link rel="icon" type="image/png" href="../../assets/logo/LogoSmall.png">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gradient-to-br from-sky-100 to-white min-h-screen font-poppins">
+  
+  <!-- Fixed Left Sidebar -->
+  <div class="flex flex-col fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-sky-700 via-sky-600 to-sky-800 shadow-xl z-50">
+    <!-- Logo Section -->
+    <div class="px-6 py-3 border-b border-sky-500/30">
+      <div class="flex items-center gap-3">
+        <img src="../../assets/logo/LogoSmall.png" alt="Logo" class="h-12 w-12 object-contain">
+        <h1 class="text-xl font-bold text-white">GENCARE</h1>
+      </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="flex flex-col px-4 mt-1">
+      <div onclick="window.location.href=`../dashboard/patientDashboard.html`" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5v4"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 5v4"></path>
+        </svg>
+        Dashboard
+      </div>
+
+      <div onclick="window.location.href=`../appointmentBooking/patientAppointment.html`" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+        Book Appointment
+      </div>
+
+      <div onclick="window.location.href=`../appointmentBooking/patientBookings.html`" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+        My Bookings
+      </div>
+
+      <div class="px-4 py-3 bg-white/20 text-white rounded-xl shadow-md backdrop-blur-sm font-medium flex items-center gap-3 cursor-pointer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6a2 2 0 012-2h6m2 2v13a2 2 0 01-2 2H9m0 0H7a2 2 0 01-2-2V9"></path>
+        </svg>
+        Reports
+      </div>
+
+      <div onclick="window.location.href=`../reviews/patientReview.html`" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292A1 1 0 0015.97 7.91h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L4.98 9.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+        </svg>
+        Reviews
+      </div>
+    </nav>
+
+    <!-- Profile Section at Bottom -->
+    <div class="absolute bottom-0 left-0 right-0 p-4 border-sky-500/30">
+        <button class="flex gap-1 text-sky-100 items-center w-full px-6 py-2 rounded-xl hover:bg_white/20 hover:text-white hover:bg-white/20 my-2 hover:shadow-md transition-all duration-300 cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Help
+        </button>
+        <div class="relative">
+          <div id="profileButton" class="w-full flex items-center gap-3 p-3 bg-white/20 rounded-xl backdrop-blur-sm cursor-pointer hover:bg-white/30 transition-all duration-300">
+            <div class="w-10 h-10 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full flex items-center justify-center">
+              <img src="../../assets/images/profile.png" class="w-6 h-6" alt="Profile">
+            </div>
+            <div class="text-white font-medium">Patient</div>
+            <svg class="w-4 h-4 text-white ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+  
+          <div id="profileDropdown" class="hidden absolute bottom-16 left-0 right-0 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <button onclick="window.location.href='../profile/patientProfile.html'" class="w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-50 transition-colors duration-200 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+              Profile
+            </button>
+            <button onclick="logout()" class="w-full px-4 py-2 text-left text-red-600 hover:bg-red-50 transition-colors duration-200 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+              </svg>
+              Logout
+            </button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="ml-64">
+    <section class="p-8 pt-6">
+      <div class="mb-4 flex items-center justify-between">
+        <div>
+          <h1 class="text-3xl font-bold text-gray-800 mb-1">Patient Reports</h1>
+          <p class="text-gray-600">View and download your medical reports</p>
+        </div>
+      </div>
+
+      <div class="bg-white/70 backdrop-blur-xl rounded-3xl shadow-sm border border-white/30 p-5 mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+          <div>
+            <label class="block text-sm text-gray-600 mb-1">Record Name</label>
+            <input id="filterName" type="text" placeholder="e.g., Blood Test" class="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-300">
+          </div>
+          <div>
+            <label class="block text-sm text-gray-600 mb-1">Doctor</label>
+            <input id="filterDoctor" type="text" placeholder="e.g., Sarah Wilson" class="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-300">
+          </div>
+          <div>
+            <label class="block text-sm text-gray-600 mb-1">Date</label>
+            <input id="filterDate" type="date" class="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-300">
+          </div>
+          <div class="flex gap-2 md:justify-end">
+            <button id="applyFilter" class="px-4 py-2 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">Search</button>
+            <button id="clearFilter" class="px-4 py-2 bg-gray-100 text-gray-800 rounded-xl hover:bg-gray-200 transition-colors">Clear</button>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white/50 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-left text-sm text-gray-800">
+            <thead class="bg-gradient-to-r from-sky-600 to-sky-700 text-white">
+              <tr>
+                <th class="px-2 py-4 font-semibold">S.No</th>
+                <th class="px-6 py-4 font-semibold">Report Name</th>
+                <th class="px-6 py-4 font-semibold">Doctor</th>
+                <th class="px-6 py-4 font-semibold">Date</th>
+                <th class="px-6 py-4 font-semibold text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr class="hover:bg-sky-50 transition-colors duration-300">
+                <td class="px-6 py-3">1</td>
+                <td class="px-6 py-3">Blood Test Report.pdf</td>
+                <td class="px-6 py-3">Dr. Smith</td>
+                <td class="px-6 py-3">15/03/2024</td>
+                <td class="px-6 py-3">
+                  <div class="flex justify-center gap-2">
+                    <button class="p-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-200 transition-colors duration-200" title="View">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                      </svg>
+                    </button>
+                    <button class="p-2 bg-green-100 text-green-600 rounded-lg hover:bg-green-200 transition-colors duration-200" title="Download">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Pagination -->
+      <div class="flex flex-col md:flex-row justify-between items-center mt-6 gap-4">
+        <div id="recordInfo" class="text-gray-600 text-sm font-medium">Showing 1 out of 3 records</div>
+        <div class="flex gap-2">
+          <button id="prevBtn" class="px-4 py-2 bg-sky-600 text-white rounded-xl hover:bg-sky-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous
+          </button>
+          <button id="nextBtn" class="px-4 py-2 bg-sky-600 text-white rounded-xl hover:bg-sky-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center gap-2">
+            Next
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function logout(){
+      const confirmed = confirm("Are you sure you want to log out?");
+      if(confirmed){
+        window.location.href="../../../index.html"
+      }
+    }
+    // Profile dropdown
+    document.getElementById("profileButton").addEventListener("click", (e) => {
+      e.stopPropagation();
+      document.getElementById("profileDropdown").classList.toggle("hidden");
+    });
+    document.addEventListener("click", () => {
+      document.getElementById("profileDropdown").classList.add("hidden");
+    });
+  </script>
+</body>
+</html>

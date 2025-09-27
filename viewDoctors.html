@@ -1,0 +1,255 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GENCARE - Our Doctors</title>
+  <link rel="icon" type="image/png" href="src/assets/logo/LogoSmall.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="../viewDoctor.js" defer></script>
+</head>
+<body class="font-poppins">
+<!-- Login Popup -->
+<div id="loginPopup" class="fixed inset-0 hidden flex backdrop-blur-sm bg-black/30 h-screen w-screen items-center justify-center z-[9999] transition duration-150">
+  <div id="loginBg" class="relative flex bg-white w-full max-w-2xl h-[80%] mx-4 border border-transparent shadow-2xl rounded-xl overflow-hidden">
+
+    <!-- Close Button -->
+    <button id="loginCloseButton" class="absolute top-2 right-2 text-gray-600 hover:text-red-500 border rounded-xl p-1 z-10">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Grid Layout -->
+    <div class="grid lg:grid-cols-2 grid-cols-1 w-full h-full">
+      
+      <!-- Left Image -->
+      <div class="bg-[url('../src/assets/images/login.png')] bg-cover bg-center hidden lg:block"></div>
+      
+      <!-- Login Container -->
+      <div class="p-6 flex flex-col justify-center w-full" id="loginContainer">
+        <div class="flex justify-center text-xl font-bold text-sky-700 mb-4">Log-in</div>
+                  <div id="userMarker" class="text-xs text-gray-700 flex justify-end items-center"><span class="text-red-500 text-lg">* </span>indicates mandatory field</div>
+        <form id="loginForm" class="flex flex-col space-y-3">
+          <div>
+            <p class="text-sm text-sky-700 font-bold mb-1">Email<span class="text-red-500"> *</span> </p>
+            <input type="email" id="loginEmail" placeholder="Enter your email" class="w-full p-2 text-sm border focus:bg-gray-100 rounded-md" required>
+            <div class="hidden text-sm text-red-500 mt-1" id="emailWarning">Enter a valid email</div>
+          </div>
+          <div>
+            <p class="text-sm text-sky-700 font-bold mb-1">Password<span class="text-red-500"> *</span> </p>
+            <input disabled type="password" id="loginPassword" placeholder="Enter your password" class="w-full p-2 text-sm border focus:bg-gray-100 rounded-md" required>
+          </div>
+          <div class="flex justify-between text-xs mt-1 mb-2">
+            <label class="flex gap-1 items-center cursor-pointer">
+              <input type="checkbox" class="text-xs text-sky-700">
+              <span>Remember me</span>
+            </label>
+            <p class="hover:underline cursor-pointer">Forget password?</p>
+          </div>
+          <button id="authLogin" type="submit" class="w-full bg-sky-700 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-blue-500 text-white font-bold text-sm py-2 rounded-xl">Log in</button>
+          <p class="text-sm text-center">New User? <a id="showSignup" class="text-blue-600 hover:underline cursor-pointer">Sign up</a></p>
+          <p class="text-sm text-center">Log in with</p>
+          <div class="flex justify-center gap-3">
+            <a href="#" class="text-blue-600 text-lg hover:text-blue-700"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="text-red-500 text-lg hover:text-red-600"><i class="fa-brands fa-google"></i></a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Signup Container -->
+      <div class="p-6 flex flex-col justify-center w-full hidden" id="signupContainer">
+        <div class="flex justify-center text-xl font-bold text-sky-700 mb-4">Sign-up</div>
+        <div id="userMarkerSignup" class="text-xs text-gray-700 flex justify-end items-center"><span class="text-red-500 text-lg">* </span>indicates mandatory field</div>
+        <form id="signupForm" class="flex flex-col space-y-3">
+          <div>
+            <p class="text-sm text-sky-700 font-bold mb-1">Email<span class="text-red-500"> *</span></p>
+            <input id="signupEmail" type="email" placeholder="Enter your email" class="w-full p-2 text-sm border focus:bg-gray-100 rounded-md" required>
+            <div class="hidden text-sm text-red-500 mt-1" id="emailWarningSignup">Enter a valid email</div>
+          </div>
+          <div>
+            <p class="text-sm text-sky-700 font-bold mb-1">Password<span class="text-red-500"> *</span></p>
+            <input disabled id="signupPassword" type="password" placeholder="Enter your password" class="w-full p-2 text-sm border focus:bg-gray-100 rounded-md" required>
+            <div class="hidden text-xs text-red-500 mt-1" id="passwordLength">Must be at least 8 characters long</div>
+            <div class="hidden text-xs text-red-500 mt-1" id="passwordCondition1">Must include at least one Uppercase</div>
+            <div class="hidden text-xs text-red-500 mt-1" id="passwordCondition2">Must include at least one Number</div>
+            <div class="hidden text-xs text-red-500 mt-1" id="passwordCondition3">Must include at least one Special symbol</div>
+          </div>
+          <div>
+            <p class="text-sm text-sky-700 font-bold mb-1">Confirm Password<span class="text-red-500"> *</span></p>
+            <input disabled id="signupConfirm" type="password" placeholder="Re-enter your password" class="w-full p-2 text-sm border focus:bg-gray-100 rounded-md" required>
+          </div>
+          <div class="hidden text-xs text-red-500 mt-1" id="confirmMatch">Password doesnt match</div>
+          <button type="submit" class="w-full bg-sky-700 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-blue-500 text-white font-bold text-sm py-2 rounded-xl mt-2">Sign up</button>
+          <p class="text-sm text-center">Existing User? <a id="showLogin" class="text-blue-600 hover:underline cursor-pointer">Log in</a></p>
+          <p class="text-sm text-center">Sign up with</p>
+          <div class="flex justify-center gap-3">
+            <a href="#" class="text-blue-600 text-lg hover:text-blue-700"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="text-red-500 text-lg hover:text-red-600"><i class="fa-brands fa-google"></i></a>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <section class="fixed top-0 w-full flex bg-white bg-gradient-to-l justify-between from-blue-300 to-white-500  items-center z-50">
+    <img src="../src/assets/logo/Logo.png" alt="GENCARE Logo" class="h-16 w-36 p-1">
+    <button class="bg-sky-700 shadow-lg shadow-sky-500/50 p-2 m-3 text-sm text-white font-bold rounded-md hover:bg-white hover:text-sky-700" id="loginButton">Login / Sign Up</button>
+    </section>
+    <div class="flex flex-col mt-20 mx-4 md:mx-12">
+            <div class="flex text-sm md:text-md">
+                <div class="hover:text-sky-700 hover:underline"><a href="index.html">Home</a></div>
+            </div>
+    </div>
+    <div class="px-4 md:px-16 lg:px-32 flex flex-col gap-2">
+        <div class="flex justify-center text-2xl md:text-3xl font-bold text-sky-700">Our Doctors</div>
+        <div class="text-center text-sm md:text-base">Here is our team of doctors, a group of highly skilled professionals with expertise across diverse medical fields. They combine years of experience with the latest medical advancements to provide precise, effective, and compassionate care for every patient.</div>
+    </div>
+    <!-- doctors grid -->
+     <div class="flex flex-col lg:flex-row px-4 md:px-8 lg:px-12 mt-4 gap-6 md:gap-8">
+      <!-- Search Panel -->
+      <div class="w-full lg:w-1/4 order-2 lg:order-1">
+        <div class="w-full bg-white border border-gray-200 shadow-lg rounded-2xl p-6 sticky top-24">
+            <div class="flex items-center justify-center gap-2 font-semibold text-lg md:text-xl mb-6 text-sky-700">
+                <i class="fas fa-search text-lg"></i>
+                <span>Search Filters</span>
+            </div>
+            <form class="space-y-5">
+                <div class="space-y-2">
+                    <label class="block text-sm font-semibold text-gray-700">Doctor Name</label>
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            placeholder="Enter Doctor Name" 
+                            class="w-full p-3 pl-10 border border-gray-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 focus:outline-none rounded-xl transition-all duration-200"
+                        >
+                        <i class="fas fa-user-md absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <div class="space-y-2">
+                    <label class="block text-sm font-semibold text-gray-700">Gender</label>
+                    <div class="relative">
+                        <select class="w-full p-3 pl-10 border border-gray-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 focus:outline-none rounded-xl appearance-none bg-white transition-all duration-200">
+                            <option>Select Gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                        <i class="fas fa-venus-mars absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <i class="fas fa-chevron-down absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <label class="block text-sm font-semibold text-gray-700">Minimum Rating</label>
+                    <div class="bg-gray-50 rounded-xl p-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="text-sm text-gray-600">0</span>
+                            </div>
+                            <div class="flex items-center gap-1 bg-yellow-100 px-3 py-1 rounded-full">
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <span id="ratingValue" class="text-sm font-bold text-yellow-600">3</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="text-sm text-gray-600">5</span>
+                            </div>
+                        </div>
+                        <input 
+                            type="range" 
+                            min="0" 
+                            max="5" 
+                            value="3" 
+                            step="0.5"
+                            class="w-full accent-yellow-400 cursor-pointer h-2 bg-gray-200 rounded-lg appearance-none"
+                            oninput="document.getElementById('ratingValue').innerText = this.value"
+                        >
+                    </div>
+                </div>
+                
+                <div class="space-y-2">
+                    <label class="block text-sm font-semibold text-gray-700">Specialty</label>
+                    <div class="relative">
+                        <select class="w-full p-3 pl-10 border border-gray-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 focus:outline-none rounded-xl appearance-none bg-white transition-all duration-200">
+                            <option>Select Specialty</option>
+                            <option>ENT</option>
+                            <option>Cardiology</option>
+                            <option>Pediatrics</option>
+                            <option>Dermatology</option>
+                            <option>Neurology</option>
+                            <option>Orthopedics</option>
+                        </select>
+                        <i class="fas fa-stethoscope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <i class="fas fa-chevron-down absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <div class="pt-2">
+                    <button class="w-full bg-gradient-to-r from-sky-600 to-sky-700 hover:from-sky-700 hover:to-sky-800 text-white font-semibold py-3 px-6 rounded-xl shadow-lg shadow-sky-500/25 transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-sky-500/30 hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2">
+                        <i class="fas fa-search"></i>
+                        <span>Search Doctors</span>
+                    </button>
+                </div>
+                
+                <div class="pt-2">
+                    <button type="button" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2.5 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2">
+                        <i class="fas fa-redo-alt text-sm"></i>
+                        <span>Reset Filters</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="w-full lg:w-3/4 bg-gray-100 rounded-2xl order-1 lg:order-2">
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 p-4">
+        <div class="text-xl md:text-2xl font-bold text-sky-700 px-4 md:px-12">Doctors: </div>
+        <div class="flex items-center gap-2">
+        <span class="text-sm text-gray-500">Sort by:</span>
+        <select class="p-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-sky-500">
+            <option>Rating (High to Low)</option>
+            <option>Name (A-Z)</option>
+            <option>Experience</option>
+        </select>
+        </div>
+    </div>
+    <div class="flex gap-4 md:gap-9 pt-4 md:pt-9 mx-2 md:mx-4 flex-wrap justify-center md:justify-evenly h-screen overflow-x-auto" id="doctorContainer">
+    </div> 
+    </div>
+    </div>
+
+    <script defer>
+document.getElementById("loginButton").addEventListener("click", () => {
+  document.getElementById("loginPopup").classList.remove("hidden")
+})
+
+const loginPopup = document.getElementById("loginPopup");
+loginPopup.addEventListener("click", (e) => {
+  if (e.target === loginPopup) {
+    loginPopup.classList.add("hidden");
+  }
+});
+
+document.getElementById("loginCloseButton").addEventListener("click", () => {
+  document.getElementById("loginPopup").classList.add("hidden")
+})
+
+
+document.getElementById("showSignup").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.getElementById("loginContainer").classList.add("hidden");
+  document.getElementById("signupContainer").classList.remove("hidden");
+});
+
+document.getElementById("showLogin").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.getElementById("loginContainer").classList.remove("hidden");
+  document.getElementById("signupContainer").classList.add("hidden");
+});
+  </script>
+</body>
+</html>

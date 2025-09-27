@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>GENCARE - Dashboard</title>
+  <link rel="icon" type="image/png" href="../../assets/logo/LogoSmall.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-gradient-to-br from-sky-100 to-white min-h-screen font-poppins">
+    
+    <!-- Fixed Left Sidebar -->
+    <div class="flex flex-col fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-sky-700 via-sky-600 to-sky-800 shadow-xl z-50">
+      <!-- Logo Section -->
+      <div class="px-6 py-3 border-b border-sky-500/30">
+        <div class="flex items-center gap-3">
+          <img src="../../assets/logo/LogoSmall.png" alt="Logo" class="h-12 w-12 object-contain">
+          <h1 class="text-xl font-bold text-white">GENCARE</h1>
+        </div>
+      </div>
+      
+      <div>
+      <!-- Navigation Links -->
+      <nav class="flex flex-col px-4">
+        <div class="px-4 py-3 bg-white/20 text-white rounded-xl shadow-md backdrop-blur-sm font-medium flex items-center gap-3 cursor-pointer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5v4"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 5v4"></path>
+          </svg>
+          Dashboard
+        </div>
+
+        <div onclick="window.location.href=`../doctors/adminDoctors.html`" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- Earpieces -->
+            <circle cx="6" cy="4" r="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="18" cy="4" r="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Tubes -->
+            <path d="M6 6v5a6 4 0 0012 0V6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Tube going down -->
+            <path d="M12 17v2a3 3 0 006 0v-2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Chest piece -->
+            <circle cx="18" cy="19" r="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Doctors
+        </div>
+        
+        <div onclick="window.location.href=`../appointmentBooking/adminPatients.html`" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+          Patients
+        </div>
+        
+        <div onclick="window.location.href=`../contentManagement/adminContent.html`" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          Content Management
+        </div>
+        
+        <div onclick="window.location.href=`../report/adminReport.html`" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+          </svg>
+          Reports
+        </div>
+        
+        <div onclick="window.location.href=`../backupRecovery/adminBackup.html`" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
+          </svg>
+          Backup & Recovery
+        </div>
+        
+        <div onclick="window.location.href=`../Queries/adminQueries.html`" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Queries
+        </div>
+      </nav>
+    </div>
+      
+      <!-- Profile Section at Bottom -->
+      <div class="absolute bottom-0 left-0 right-0 p-4 border-sky-500/30">
+        <button class="flex gap-1 text-sky-100 items-center w-full px-6 py-2 rounded-xl hover:bg_white/20 hover:text-white hover:bg-white/20 my-2 hover:shadow-md transition-all duration-300 cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Help
+        </button>
+        <div class="relative">
+          <div id="profileButton" class="w-full flex items-center gap-3 p-3 bg-white/20 rounded-xl backdrop-blur-sm cursor-pointer hover:bg-white/30 transition-all duration-300">
+            <div class="w-10 h-10 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full flex items-center justify-center">
+              <img src="../../assets/images/profile.png" class="w-6 h-6" alt="Profile">
+            </div>
+            <div class="text-white font-medium">Admin</div>
+            <svg class="w-4 h-4 text-white ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+          
+          <div id="profileDropdown" class="hidden absolute bottom-16 left-0 right-0 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+            <button onclick="window.location.href=`../profile/adminProfile.html`" class="w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-50 transition-colors duration-200 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+              Profile
+            </button>
+            <button onclick="logout()" class="w-full px-4 py-2 text-left text-red-600 hover:bg-red-50 transition-colors duration-200 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+              </svg>
+              Logout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Area (shifted right to accommodate sidebar) -->
+    <div class="ml-64">
+      <!-- Header -->
+      <section class="p-8 pt-6">
+        <div class="mb-8 flex justify-between">
+          <div>
+          <h1 class="text-4xl font-bold text-gray-800 mb-2">Welcome Admin</h1>
+          <p class="text-gray-600">Manage your healthcare platform from here</p>
+          </div>
+          <div title="Notifications" class="mt-4" onclick="window.location.href='adminDashboard.html#notifications'">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.5-1.5a2 2 0 01-.5-1.34V11a6 6 0 00-12 0v3.16c0 .5-.18.98-.5 1.34L4 17h5m6 0v1a3 3 0 11-6 0v-1"/>
+          </svg>
+          </div>
+        </div>
+
+        <!-- Modern Stats cards with gradients -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white/50 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 border border-gray-100 group">
+            <div class="flex justify-between items-start">
+              <div>
+                <h2 class="text-lg font-semibold text-gray-700 mb-2">Appointments Today</h2>
+                <p class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">1,250</p>
+              </div>
+              <div class="p-3 bg-gradient-to-br mt-3 from-blue-500 to-blue-600 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white/50 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 border border-gray-100 group">
+            <div class="flex justify-between items-start">
+              <div>
+                <h2 class="text-lg font-semibold text-gray-700 mb-2">Doctors Available</h2>
+                <p class="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent">45</p>
+              </div>
+              <div class="p-3 mt-3 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white/50 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 border border-gray-100 group">
+            <div class="flex justify-between items-start">
+              <div>
+                <h2 class="text-lg font-semibold text-gray-700 mb-2">Appointments Cancelled</h2>
+                <p class="text-4xl font-bold bg-gradient-to-r from-red-600 to-rose-500 bg-clip-text text-transparent">12</p>
+              </div>
+              <div class="p-3 mt-3 bg-gradient-to-br from-red-500 to-rose-600 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modern Charts Section -->
+      <div class="px-8 pb-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Appointments Chart -->
+        <div class="bg-white/50 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-lg font-semibold text-gray-800">Total Appointments</h2>
+            <select onchange="updateChart('appointments', this.value)"
+                    class="px-3 py-1.5 text-sm border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-sky-400">
+              <option value="daily" selected>Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+              <option value="yearly">Yearly</option>
+            </select>
+          </div>
+          <canvas id="appointmentsChart" width="260" height="240"></canvas>
+        </div>
+
+        <!-- Cancelled Appointments Chart -->
+        <div class="bg-white/50 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-lg font-semibold text-gray-800">Cancelled Appointments</h2>
+            <select onchange="updateChart('cancelled', this.value)"
+                    class="px-3 py-1.5 text-sm border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-red-400">
+              <option value="daily" selected>Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+              <option value="yearly">Yearly</option>
+            </select>
+          </div>
+
+          <canvas id="cancelledChart" width="260" height="240"></canvas>
+        </div>
+
+        <!-- Doctors per Department Pie Chart -->
+        <div class="bg-white/50 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 flex flex-col items-center">
+          <h2 class="text-lg font-semibold text-gray-800 mb-4 flex justify-center">Doctors per Department</h2>
+          <canvas id="doctorsPie" width="280" height="250"></canvas>
+        </div>
+
+      </div>
+
+      <!-- Modern Information Cards -->
+      <div id="notifications" class="px-8 pb-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Notifications -->
+        <div class="bg-white/50 backdrop-blur-md rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
+          <div class="bg-gradient-to-r from-sky-700 to-sky-600 text-white px-6 py-4">
+            <h3 class="font-semibold text-lg flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-5a7.5 7.5 0 01-7.5-7.5H12a7.5 7.5 0 017.5 7.5V17z"></path>
+              </svg>
+              Notifications
+            </h3>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                <span class="text-blue-600">🔔</span>
+                <span class="text-gray-700">New doctor registered</span>
+              </li>
+              <li class="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                <span class="text-green-600">🔔</span>
+                <span class="text-gray-700">Appointment #1245 confirmed</span>
+              </li>
+              <li class="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                <span class="text-purple-600">🔔</span>
+                <span class="text-gray-700">Lab results uploaded</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Today's Appointments -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
+          <div class="bg-gradient-to-r from-sky-700 to-sky-600 text-white px-6 py-4">
+            <div class="flex justify-between items-center">
+              <h3 class="font-semibold text-lg flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Today's Appointments
+              </h3>
+              <button title="view more" onclick="window.location.href=`adminPatients.html`" class=" hover:bg-white/20 rounded-lg transition-colors duration-200">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-sm">
+              <thead class="bg-gray-50 border-b border-gray-200">
+                <tr>
+                  <th class="px-6 py-3 text-left font-semibold text-gray-700">Time</th>
+                  <th class="px-6 py-3 text-left font-semibold text-gray-700">Patient</th>
+                  <th class="px-6 py-3 text-left font-semibold text-gray-700">Doctor</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                  <td class="px-6 py-4 text-gray-800 font-medium">09:00 AM</td>
+                  <td class="px-6 py-4 text-gray-700">John Doe</td>
+                  <td class="px-6 py-4 text-gray-700">Dr. Smith</td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                  <td class="px-6 py-4 text-gray-800 font-medium">09:30 AM</td>
+                  <td class="px-6 py-4 text-gray-700">Jane Smith</td>
+                  <td class="px-6 py-4 text-gray-700">Dr. Adams</td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                  <td class="px-6 py-4 text-gray-800 font-medium">10:00 AM</td>
+                  <td class="px-6 py-4 text-gray-700">Alex Johnson</td>
+                  <td class="px-6 py-4 text-gray-700">Dr. Lee</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Doctors & Appointments -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
+          <div class="bg-gradient-to-r from-sky-700 to-sky-600 text-white px-6 py-4">
+            <div class="flex justify-between items-center">
+              <h3 class="font-semibold text-lg flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                </svg>
+                Doctors
+              </h3>
+              <button title="view more" onclick="window.location.href=`adminDoctors.html`" class="hover:bg-white/20 rounded-lg transition-colors duration-200">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-sm">
+              <thead class="bg-gray-50 border-b border-gray-200">
+                <tr>
+                  <th class="px-6 py-3 text-left font-semibold text-gray-700">Doctor</th>
+                  <th class="px-6 py-3 text-left font-semibold text-gray-700">Appointments</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                  <td class="px-6 py-4 text-gray-800">Dr. Smith</td>
+                  <td class="px-6 py-4">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-sky-100 text-sky-700">
+                      12
+                    </span>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                  <td class="px-6 py-4 text-gray-800">Dr. Adams</td>
+                  <td class="px-6 py-4">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-sky-100 text-sky-700">
+                      9
+                    </span>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                  <td class="px-6 py-4 text-gray-800">Dr. Lee</td>
+                  <td class="px-6 py-4">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-sky-100 text-sky-700">
+                      15
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<script>
+  function logout(){
+      const confirmed = confirm("Are you sure you want to log out?");
+      if(confirmed){
+        window.location.href="../../../index.html"
+      }
+    }
+  console.log(localStorage.getItem("currentUser"));
+  // Define labels for each view
+  const chartLabels = {
+    daily:   ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+    weekly:  ['Wk1','Wk2','Wk3','Wk4','Wk5','Wk6','Wk7'],
+    monthly: ['Jan','Feb','Mar','Apr','May','Jun','Jul'],
+    yearly:  ['2021','2022','2023','2024']
+  };
+
+  const chartData = {
+    appointments: {
+      daily:   [200,300,250,400,350,450,500],
+      weekly:  [1200,1500,1300,1800,1700,1600,1900],
+      monthly: [5000,6000,5500,7000,6800,7200,7500],
+      yearly:  [42000,46000,50000,53000]
+    },
+    cancelled: {
+      daily:   [10,12,8,15,9,13,14],
+      weekly:  [50,45,60,55,52,58,63],
+      monthly: [200,220,210,230,250,240,260],
+      yearly:  [800,950,1020,1100]
+    }
+  };
+
+  // Create charts with modern styling
+  const appointmentsChart = new Chart(
+    document.getElementById('appointmentsChart').getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: chartLabels.daily,
+        datasets: [{
+          label: 'Daily',
+          data: chartData.appointments.daily,
+          backgroundColor: 'rgba(3, 105, 161,0.8)',
+          borderColor: 'rgb(3, 105, 161)',
+          borderWidth: 0.1,
+          borderRadius: 5,
+          borderSkipped: false,
+          barThickness: 10,
+          maxBarThickness: 25 
+        }]
+      },
+      options: { 
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: 'rgba(156, 163, 175, 0.2)'
+            }
+          },
+          x: {
+            grid: {
+              display: false
+            }
+          }
+        }
+      }
+    }
+  );
+
+  const cancelledChart = new Chart(
+    document.getElementById('cancelledChart').getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: chartLabels.daily,
+        datasets: [{
+          label: 'Daily',
+          data: chartData.cancelled.daily,
+          backgroundColor: 'rgba(220, 38, 38,0.2)',
+          borderColor: 'rgb(220, 38, 38)',
+          fill:true,
+          borderWidth: 0.5,
+          borderRadius: 5,
+          borderSkipped: false,
+          barThickness: 50,
+          maxBarThickness: 25 
+        }]
+      },
+      options: { 
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: 'rgba(156, 163, 175, 0.2)'
+            }
+          },
+          x: {
+            grid: {
+              display: false
+            }
+          }
+        }
+      }
+    }
+  );
+
+ const doctorsCtx = document.getElementById('doctorsPie').getContext('2d');
+
+// Create gradient colors to give a 3D shading effect
+const gradients = [
+  createGradient(doctorsCtx, '#fbbf24'),
+  createGradient(doctorsCtx, '#22c55e'),
+  createGradient(doctorsCtx, '#3b82f6'),
+  createGradient(doctorsCtx, '#ef4444'),
+  createGradient(doctorsCtx, '#14b8a6')
+];
+
+const doctorsPie = new Chart(doctorsCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Cardiology', 'Orthopedics', 'Neurology', 'Pediatrics', 'Dermatology'],
+    datasets: [{
+      label: 'Doctors',
+      data: [12, 9, 5, 7, 4],
+      backgroundColor: gradients,
+      borderWidth: 2,
+      borderColor: '#fff',
+      hoverOffset: 20,
+    }]
+  },
+  options: {
+    cutout: '40%',
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          boxWidth: 20,
+          padding: 15
+        }
+      }
+    },
+    responsive: false,
+  },
+  plugins: [{
+    id: 'shadow',
+    beforeDraw: (chart) => {
+      const ctx = chart.ctx;
+      ctx.save();
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.25)';
+      ctx.shadowBlur = 15;
+      ctx.shadowOffsetX = 5;
+      ctx.shadowOffsetY = 5;
+      ctx.restore();
+    }
+  }]
+});
+
+// Helper to create radial gradient
+function createGradient(ctx, color) {
+  const gradient = ctx.createRadialGradient(150, 150, 50, 150, 150, 150);
+  gradient.addColorStop(0, color);
+  gradient.addColorStop(1, shadeColor(color, -20));
+  return gradient;
+}
+
+// Slightly darken the edge color for depth
+function shadeColor(color, percent) {
+  const num = parseInt(color.slice(1), 16),
+        amt = Math.round(2.55 * percent),
+        R = (num >> 16) + amt,
+        G = (num >> 8 & 0x00FF) + amt,
+        B = (num & 0x0000FF) + amt;
+  return `rgb(${Math.min(255, Math.max(0, R))},
+              ${Math.min(255, Math.max(0, G))},
+              ${Math.min(255, Math.max(0, B))})`;
+}
+
+  // Function to update data + labels with button styling
+    function updateChart(chartName, view) {
+      const chart = chartName === 'appointments' ? appointmentsChart : cancelledChart;
+      chart.data.labels = chartLabels[view];
+      chart.data.datasets[0].data = chartData[chartName][view];
+      chart.data.datasets[0].label = view.charAt(0).toUpperCase() + view.slice(1);
+      chart.update();
+
+      // Button styling
+      const container = chart.canvas.closest('.bg-white/50');
+      const buttons = container.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.className =
+          'px-3 py-1.5 text-sm bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors duration-200';
+      });
+      const activeButton = Array.from(buttons).find(
+        btn => btn.textContent.toLowerCase() === view
+      );
+      if (activeButton) {
+        activeButton.className =
+          chartName === 'cancelled'
+            ? 'px-3 py-1.5 text-sm bg-red-600 text-white rounded-lg shadow-md hover:bg-red-500 transition-colors duration-200'
+            : 'px-3 py-1.5 text-sm bg-sky-700 text-white rounded-lg shadow-md hover:bg-sky-600 transition-colors duration-200';
+      }
+    }
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const profileBtn = document.getElementById("profileButton");
+    const dropdown = document.getElementById("profileDropdown");
+
+    profileBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle("hidden");
+    });
+
+    // Close dropdown when clicking anywhere else
+    document.addEventListener("click", () => {
+      if (!dropdown.classList.contains("hidden")) {
+        dropdown.classList.add("hidden");
+        }
+      });
+    });
+</script>
+  </body>
+</html>

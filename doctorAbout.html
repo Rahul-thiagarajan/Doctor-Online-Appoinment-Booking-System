@@ -1,0 +1,185 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GENCARE - Doctor Profile</title>
+  <link rel="icon" type="image/png" href="src/assets/logo/LogoSmall.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="../aboutDoctor.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-lato">
+<!-- Login Popup -->
+<div id="loginPopup" class="fixed inset-0 hidden flex backdrop-blur-sm bg-black/30 h-screen w-screen items-center justify-center z-[9999] transition duration-150">
+  <div id="loginBg" class="relative flex bg-white w-full max-w-2xl h-[80%] mx-4 border border-transparent shadow-2xl rounded-xl overflow-hidden">
+
+    <!-- Close Button -->
+    <button id="loginCloseButton" class="absolute top-2 right-2 text-gray-600 hover:text-red-500 border rounded-xl p-1 z-10">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Grid Layout -->
+    <div class="grid lg:grid-cols-2 grid-cols-1 w-full h-full">
+      
+      <!-- Left Image -->
+      <div class="bg-[url('../src/assets/images/login.png')] bg-cover bg-center hidden lg:block"></div>
+      
+      <!-- Login Container -->
+      <div class="p-6 flex flex-col justify-center w-full" id="loginContainer">
+        <div class="flex justify-center text-xl font-bold text-sky-700 mb-4">Log-in</div>
+                  <div id="userMarker" class="text-xs text-gray-700 flex justify-end items-center"><span class="text-red-500 text-lg">* </span>indicates mandatory field</div>
+        <form id="loginForm" class="flex flex-col space-y-3">
+          <div>
+            <p class="text-sm text-sky-700 font-bold mb-1">Email<span class="text-red-500"> *</span> </p>
+            <input type="email" id="loginEmail" placeholder="Enter your email" class="w-full p-2 text-sm border focus:bg-gray-100 rounded-md" required>
+            <div class="hidden text-sm text-red-500 mt-1" id="emailWarning">Enter a valid email</div>
+          </div>
+          <div>
+            <p class="text-sm text-sky-700 font-bold mb-1">Password<span class="text-red-500"> *</span> </p>
+            <input disabled type="password" id="loginPassword" placeholder="Enter your password" class="w-full p-2 text-sm border focus:bg-gray-100 rounded-md" required>
+          </div>
+          <div class="flex justify-between text-xs mt-1 mb-2">
+            <label class="flex gap-1 items-center cursor-pointer">
+              <input type="checkbox" class="text-xs text-sky-700">
+              <span>Remember me</span>
+            </label>
+            <p class="hover:underline cursor-pointer">Forget password?</p>
+          </div>
+          <button id="authLogin" type="submit" class="w-full bg-sky-700 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-blue-500 text-white font-bold text-sm py-2 rounded-xl">Log in</button>
+          <p class="text-sm text-center">New User? <a id="showSignup" class="text-blue-600 hover:underline cursor-pointer">Sign up</a></p>
+          <p class="text-sm text-center">Log in with</p>
+          <div class="flex justify-center gap-3">
+            <a href="#" class="text-blue-600 text-lg hover:text-blue-700"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="text-red-500 text-lg hover:text-red-600"><i class="fa-brands fa-google"></i></a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Signup Container -->
+      <div class="p-6 flex flex-col justify-center w-full hidden" id="signupContainer">
+        <div class="flex justify-center text-xl font-bold text-sky-700 mb-4">Sign-up</div>
+        <div id="userMarkerSignup" class="text-xs text-gray-700 flex justify-end items-center"><span class="text-red-500 text-lg">* </span>indicates mandatory field</div>
+        <form id="signupForm" class="flex flex-col space-y-3">
+          <div>
+            <p class="text-sm text-sky-700 font-bold mb-1">Email<span class="text-red-500"> *</span></p>
+            <input id="signupEmail" type="email" placeholder="Enter your email" class="w-full p-2 text-sm border focus:bg-gray-100 rounded-md" required>
+            <div class="hidden text-sm text-red-500 mt-1" id="emailWarningSignup">Enter a valid email</div>
+          </div>
+          <div>
+            <p class="text-sm text-sky-700 font-bold mb-1">Password<span class="text-red-500"> *</span></p>
+            <input disabled id="signupPassword" type="password" placeholder="Enter your password" class="w-full p-2 text-sm border focus:bg-gray-100 rounded-md" required>
+            <div class="hidden text-xs text-red-500 mt-1" id="passwordLength">Must be at least 8 characters long</div>
+            <div class="hidden text-xs text-red-500 mt-1" id="passwordCondition1">Must include at least one Uppercase</div>
+            <div class="hidden text-xs text-red-500 mt-1" id="passwordCondition2">Must include at least one Number</div>
+            <div class="hidden text-xs text-red-500 mt-1" id="passwordCondition3">Must include at least one Special symbol</div>
+          </div>
+          <div>
+            <p class="text-sm text-sky-700 font-bold mb-1">Confirm Password<span class="text-red-500"> *</span></p>
+            <input disabled id="signupConfirm" type="password" placeholder="Re-enter your password" class="w-full p-2 text-sm border focus:bg-gray-100 rounded-md" required>
+          </div>
+          <div class="hidden text-xs text-red-500 mt-1" id="confirmMatch">Password doesnt match</div>
+          <button type="submit" class="w-full bg-sky-700 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-blue-500 text-white font-bold text-sm py-2 rounded-xl mt-2">Sign up</button>
+          <p class="text-sm text-center">Existing User? <a id="showLogin" class="text-blue-600 hover:underline cursor-pointer">Log in</a></p>
+          <p class="text-sm text-center">Sign up with</p>
+          <div class="flex justify-center gap-3">
+            <a href="#" class="text-blue-600 text-lg hover:text-blue-700"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="text-red-500 text-lg hover:text-red-600"><i class="fa-brands fa-google"></i></a>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <section class="fixed top-0 w-full flex bg-white bg-gradient-to-l justify-between from-blue-300 to-white-500  items-center z-50">
+    <img src="../src/assets/logo/Logo.png" alt="GENCARE Logo" class="h-16 w-36 p-1">
+    <button class="bg-sky-700 shadow-lg shadow-sky-500/50 p-2 m-3 text-sm text-white font-bold rounded-md hover:bg-white hover:text-sky-700" id="loginButton">Book Appointment</button>
+    </section>
+    <section>
+      <div class="flex flex-col mt-20 mx-4 md:mx-12">
+        <div class="flex justify-between">
+            <div class="flex text-sm md:text-md">
+                <div class="hover:text-sky-700 hover:underline"><a href="index.html">Home</a></div>
+                <pre> / </pre>
+                <div class="hover:text-sky-700 hover:underline"><a href="viewDoctors.html">Doctors</a></div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <section class="flex flex-col mt-8 mx-4 md:mx-12 lg:mx-24 gap-6 md:gap-10 mb-16">
+  <!-- Top Profile Section -->
+  <div class="bg-gray-50 w-full flex flex-col md:flex-row items-center md:items-center gap-6 md:gap-16 rounded-2xl shadow-xl shadow-gray-300/50 p-6 md:p-10">
+    <img src="../src/assets/images/profile.png" class="h-24 w-24 md:h-28 md:w-28 rounded-full shadow-md object-cover" id="profilePic">
+    <div class="flex flex-col gap-2 md:gap-4 text-center md:text-left">
+      <p class="font-semibold text-2xl md:text-3xl text-gray-800" id="doctorName">Dr. Abc</p>
+      <p class="text-lg md:text-xl text-gray-600" id="designationDept">Chief Doctor - Cardiology</p>
+    </div>
+  </div>
+
+  <div class="flex flex-col lg:flex-row gap-6 md:gap-10">
+    <div class="w-full lg:w-1/4 bg-gray-50 rounded-2xl shadow-xl shadow-gray-300/50 p-4 md:p-6 flex flex-col justify-center gap-3">
+      <div class="text-gray-700 text-sm md:text-md flex justify-between"><span class="font-semibold">Age:</span> <p id="age">45</p></div>
+      <div class="text-gray-700 text-sm md:text-md flex justify-between"><span class="font-semibold">Gender:</span> <p id="gender">Male</p></div>
+      <div class="text-gray-700 text-sm md:text-md flex justify-between"><span class="font-semibold">Experience:</span> <p id="experience">4 years</p></div>
+      <div class="text-gray-700 text-sm md:text-md flex justify-between">
+        <span class="font-semibold">Average Rating:</span>
+        <div class="flex items-center" id="ratingContainer"></div>
+      </div>
+    </div>
+
+    <div class="w-full lg:w-3/4 bg-gray-50 rounded-2xl shadow-xl shadow-gray-300/50 p-4 md:p-6 flex flex-col gap-4">
+      <h2 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">About</h2>
+      <p class="text-gray-700 text-sm md:text-md leading-relaxed" id="about">
+        Just a sample about content about the doctor. This section can include their educational background,
+        specialties, and philosophy towards patient care.
+      </p>
+    </div>
+  </div>
+
+  <div class="flex flex-col lg:flex-row gap-6 md:gap-10">
+    <div class="w-full lg:w-1/4 bg-gray-50 rounded-2xl shadow-xl shadow-gray-300/50 p-4 md:p-6 flex flex-col gap-4">
+      <h2 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">Reviews</h2>
+      <div id="reviewsContainer" class="flex flex-col gap-4"></div>
+    </div>
+
+    <div class="w-full lg:w-3/4 bg-gray-50 rounded-2xl shadow-xl shadow-gray-300/50 p-4 md:p-6 flex flex-col gap-4">
+      <h2 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">Achievements</h2>
+      <div id="achievementsContainer" class="flex flex-col gap-2"></div>
+    </div>
+  </div>
+</section>
+<script defer>
+document.getElementById("loginButton").addEventListener("click", () => {
+  document.getElementById("loginPopup").classList.remove("hidden")
+})
+
+const loginPopup = document.getElementById("loginPopup");
+loginPopup.addEventListener("click", (e) => {
+  if (e.target === loginPopup) {
+    loginPopup.classList.add("hidden");
+  }
+});
+
+document.getElementById("loginCloseButton").addEventListener("click", () => {
+  document.getElementById("loginPopup").classList.add("hidden")
+})
+
+
+document.getElementById("showSignup").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.getElementById("loginContainer").classList.add("hidden");
+  document.getElementById("signupContainer").classList.remove("hidden");
+});
+
+document.getElementById("showLogin").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.getElementById("loginContainer").classList.remove("hidden");
+  document.getElementById("signupContainer").classList.add("hidden");
+});
+  </script>
+</body>
+</html>

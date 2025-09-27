@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GENCARE - Booking</title>
+  <link rel="icon" type="image/png" href="../../assets/logo/LogoSmall.png">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gradient-to-br from-sky-100 to-white min-h-screen font-poppins">
+  <!-- Fixed Left Sidebar (match patient profile) -->
+  <div class="flex flex-col fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-sky-700 via-sky-600 to-sky-800 shadow-xl z-50">
+    <!-- Logo Section -->
+    <div class="px-6 py-3 border-b border-sky-500/30">
+      <div class="flex items-center gap-3">
+        <img src="../../assets/logo/LogoSmall.png" alt="Logo" class="h-12 w-12 object-contain">
+        <h1 class="text-xl font-bold text-white">GENCARE</h1>
+      </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="flex flex-col px-4 mt-1">
+      <div onclick="window.location.href='../dashboard/patientDashboard.html'" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5v4"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 5v4"></path>
+        </svg>
+        Dashboard
+      </div>
+
+      <div class="px-4 py-3 bg-white/20 text-white rounded-xl shadow-md backdrop-blur-sm font-medium flex items-center gap-3 cursor-pointer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+        Book Appointment
+      </div>
+      <div onclick="window.location.href=`../appointmentBooking/patientBookings.html`" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+        My Bookings
+      </div>
+
+      <div onclick="window.location.href=`../report/patientReport.html`" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6a2 2 0 012-2h6m2 2v13a2 2 0 01-2 2H9m0 0H7a2 2 0 01-2-2V9"></path>
+        </svg>
+        Reports
+      </div>
+
+      <div onclick="window.location.href=`../reviews/patientReview.html`" class="px-4 py-3 hover:bg-white/20 rounded-xl hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer text-sky-100 font-medium flex items-center gap-3 cursor-pointer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292A1 1 0 0015.97 7.91h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L4.98 9.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+        </svg>
+        Reviews
+      </div>
+    </nav>
+
+    <!-- Profile Section at Bottom -->
+    <div class="absolute bottom-0 left-0 right-0 p-4 border-sky-500/30">
+      <button class="flex gap-1 text-sky-100 items-center w-full px-6 py-2 rounded-xl hover:bg_white/20 hover:text-white hover:bg-white/20 my-2 hover:shadow-md transition-all duration-300 cursor-pointer">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        Help
+      </button>
+      <div class="relative">
+        <div id="profileButton" class="w-full flex items-center gap-3 p-3 bg-white/20 rounded-xl backdrop-blur-sm cursor-pointer hover:bg-white/30 transition-all duration-300">
+          <div class="w-10 h-10 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full flex items-center justify-center">
+            <img src="../../assets/images/profile.png" class="w-6 h-6" alt="Profile">
+          </div>
+          <div class="text-white font-medium">Patient</div>
+          <svg class="w-4 h-4 text-white ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+
+        <div id="profileDropdown" class="hidden absolute bottom-16 left-0 right-0 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+          <button onclick="window.location.href='../profile/patientProfile.html'" class="w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-50 transition-colors duration-200 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+            Profile
+          </button>
+          <button onclick="logout()" class="w-full px-4 py-2 text-left text-red-600 hover:bg-red-50 transition-colors duration-200 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+            </svg>
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Header shifted for sidebar -->
+  <div class="ml-64">
+  <section class="px-8 py-4">
+    <div class="mb-6">
+      <h1 class="text-3xl font-bold text-gray-800 mb-2">Book Appointment</h1>
+      <p class="text-gray-600">Select your date, doctor, and preferred time slot</p>
+    </div>
+  </section>
+
+  <!-- Main Booking Interface -->
+  <section class="px-8 pb-8">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 h-[calc(100vh-200px)]">
+      
+      <!-- Left Column - Date & Time Selection -->
+      <div class="lg:col-span-1 space-y-6">
+        
+        <!-- Date Selection -->
+        <div class="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/30 p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-4">Select Date:</h3>
+          <div id="calendar" class="w-full">
+            <!-- Calendar Header -->
+            <div class="flex items-center justify-between mb-4">
+              <button id="prevMonth" class="p-2 hover:bg-sky-100 rounded-lg transition-colors duration-200">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <h4 id="currentMonth" class="text-lg font-semibold text-gray-800"></h4>
+              <button id="nextMonth" class="p-2 hover:bg-sky-100 rounded-lg transition-colors duration-200">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+            
+            <!-- Calendar Days Header -->
+            <div class="grid grid-cols-7 gap-1 mb-2">
+              <div class="text-center text-xs font-medium text-gray-500 py-2">Sun</div>
+              <div class="text-center text-xs font-medium text-gray-500 py-2">Mon</div>
+              <div class="text-center text-xs font-medium text-gray-500 py-2">Tue</div>
+              <div class="text-center text-xs font-medium text-gray-500 py-2">Wed</div>
+              <div class="text-center text-xs font-medium text-gray-500 py-2">Thu</div>
+              <div class="text-center text-xs font-medium text-gray-500 py-2">Fri</div>
+              <div class="text-center text-xs font-medium text-gray-500 py-2">Sat</div>
+            </div>
+            
+            <!-- Calendar Days -->
+            <div id="calendarDays" class="grid grid-cols-7 gap-1">
+              <!-- Days will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Time Slots Selection -->
+        <div class="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/30 p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-4">Select Slots:</h3>
+          <div id="timeSlots" class="space-y-2">
+            <p class="text-gray-500 text-center py-4">Please select a date and doctor first</p>
+          </div>
+        </div>
+
+        <!-- Patient's Concern -->
+        <div class="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/30 p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-4">Patient's Concern:</h3>
+          <textarea 
+            id="patientConcern" 
+            placeholder="Describe your symptoms or reason for visit..."
+            class="w-full h-24 p-3 border border-gray-300 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+          ></textarea>
+          <button 
+            id="findButton" 
+            class="w-full mt-4 bg-gradient-to-r from-sky-600 to-sky-700 text-white py-3 rounded-xl font-semibold hover:from-sky-700 hover:to-sky-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled
+          >
+            Find Appointment
+          </button>
+        </div>
+      </div>
+
+      <!-- Middle Column - Doctor Search Results -->
+      <div class="lg:col-span-2">
+        <div class="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/30 p-6 h-full">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-bold text-gray-800">Available Doctors</h3>
+            <div class="relative">
+              <input 
+                type="text" 
+                id="doctorSearch" 
+                placeholder="Search doctors..." 
+                class="pl-10 pr-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+              >
+              <svg class="w-4 h-4 text-gray-400 absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </div>
+          </div>
+          
+          <div id="doctorsList" class="space-y-4 overflow-y-auto h-[calc(100%-100px)]">
+            <p class="text-gray-500 text-center py-8">Please select a date to see available doctors</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - Doctor Details -->
+      <div class="lg:col-span-1">
+        <div class="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/30 p-6 h-full">
+          <h3 class="text-xl font-bold text-gray-800 mb-6">Doctor Details:</h3>
+          
+          <div id="doctorDetails" class="text-center">
+            <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <p class="text-gray-500 mb-6">Select a doctor to view details</p>
+            
+            <button 
+              id="bookNowButton" 
+              class="w-full bg-gradient-to-r from-sky-600 to-sky-700 text-white py-3 rounded-xl font-semibold hover:from-sky-700 hover:to-sky-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="hidden fixed inset-0 backdrop-blur-sm bg-black/30 flex items-center justify-center z-50">
+    <div class="bg-white rounded-3xl p-8 max-w-md mx-4 text-center">
+      <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Appointment Booked!</h3>
+      <p class="text-gray-600 mb-6">Your appointment has been successfully scheduled.</p>
+      <button 
+        id="closeModal" 
+        class="px-6 py-2 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-all duration-300"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function logout(){
+      const confirmed = confirm("Are you sure you want to log out?");
+      if(confirmed){
+        window.location.href="../../../index.html"
+      }
+    }
+    // Global variables
+    let selectedDate = null;
+    let selectedDoctor = null;
+    let selectedSlot = null;
+    let currentMonth = new Date().getMonth();
+    let currentYear = new Date().getFullYear();
+    
+    // Load doctors from localStorage
+    const doctorsData = JSON.parse(localStorage.getItem('doctors')) || [];
+    console.log('[PatientAppt] Loaded doctors from storage:', doctorsData);
+
+    function getDateKey(dateObj) {
+      const key = `${dateObj.getFullYear()}-${(dateObj.getMonth() + 1).toString().padStart(2, '0')}-${dateObj.getDate().toString().padStart(2, '0')}`;
+      return key;
+    }
+
+    function formatDateDDMMYYYY(dateObj) {
+      const dd = dateObj.getDate().toString().padStart(2, '0');
+      const mm = (dateObj.getMonth() + 1).toString().padStart(2, '0');
+      const yyyy = dateObj.getFullYear();
+      return `${dd}/${mm}/${yyyy}`;
+    }
+
+    function generateNextAppointmentId(existing) {
+      if (!existing || existing.length === 0) return 'A101';
+      const maxNum = existing.reduce((max, appt) => {
+        const match = String(appt.appointmentId || '').match(/^A(\d+)$/);
+        const num = match ? parseInt(match[1]) : 100;
+        return Math.max(max, num);
+      }, 100);
+      return `A${maxNum + 1}`;
+    }
+
+    // Profile dropdown functionality
+    document.getElementById("profileButton").addEventListener("click", (e) => {
+      e.stopPropagation();
+      document.getElementById("profileDropdown").classList.toggle("hidden");
+    });
+    
+    document.addEventListener("click", () => {
+      document.getElementById("profileDropdown").classList.add("hidden");
+    });
+
+    // Calendar functionality
+    function generateCalendar(month, year) {
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const today = new Date();
+      
+      const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+      
+      document.getElementById("currentMonth").textContent = `${monthNames[month]} ${year}`;
+      
+      const calendarDays = document.getElementById("calendarDays");
+      calendarDays.innerHTML = "";
+      for (let i = 0; i < firstDay; i++) {
+        const emptyDay = document.createElement("div");
+        emptyDay.className = "h-10";
+        calendarDays.appendChild(emptyDay);
+      }
+      
+      // Days of the month
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dayButton = document.createElement("button");
+        const currentDate = new Date(year, month, day);
+        const isToday = currentDate.toDateString() === today.toDateString();
+        const isPast = currentDate < today && !isToday;
+        
+        dayButton.textContent = day;
+        dayButton.className = `h-10 w-full rounded-lg text-sm font-medium transition-all duration-200 ${
+          isPast 
+            ? "text-gray-300 cursor-not-allowed" 
+            : isToday
+              ? "bg-sky-600 text-white hover:bg-sky-700"
+              : "text-gray-700 hover:bg-sky-100"
+        }`;
+        
+        if (!isPast) {
+          dayButton.addEventListener("click", () => selectDate(year, month, day));
+        } else {
+          dayButton.disabled = true;
+        }
+        
+        calendarDays.appendChild(dayButton);
+      }
+    }
+
+    function selectDate(year, month, day) {
+      selectedDate = new Date(year, month, day);
+      selectedDoctor = null;
+      selectedSlot = null;
+      console.log('[PatientAppt] Date selected:', selectedDate, 'key:', getDateKey(selectedDate));
+      // Update calendar selection
+      const dayButtons = document.querySelectorAll("#calendarDays button:not(:disabled)");
+      dayButtons.forEach(btn => {
+        btn.className = "h-10 w-full rounded-lg text-sm font-medium transition-all duration-200 text-gray-700 hover:bg-sky-100";
+      });
+      // Highlight selected date
+      const selectedButton = Array.from(dayButtons).find(btn => btn.textContent == day);
+      if (selectedButton) {
+        selectedButton.className = "h-10 w-full rounded-lg text-sm font-medium transition-all duration-200 bg-sky-600 text-white hover:bg-sky-700";
+      }
+      loadAvailableDoctors();
+      clearTimeSlots();
+      clearDoctorDetails();
+    }
+
+    function loadAvailableDoctors() {
+      if (!selectedDate) return;
+      const dateKey = getDateKey(selectedDate);
+      console.log('[PatientAppt] Loading available doctors for dateKey:', dateKey);
+      // Filter doctors that have slots for the selected date
+      const availableDoctors = doctorsData.filter(doctor => {
+        const hasSlots = doctor && doctor.slots && typeof doctor.slots === 'object' && doctor.slots[dateKey] && doctor.slots[dateKey].length > 0;
+        return !!hasSlots;
+      });
+      console.log('[PatientAppt] Available doctors:', availableDoctors.map(d => d.doctorId));
+      
+      const doctorsList = document.getElementById("doctorsList");
+      
+      if (availableDoctors.length === 0) {
+        doctorsList.innerHTML = '<p class="text-gray-500 text-center py-8">No doctors available on this date</p>';
+        return;
+      }
+      
+      doctorsList.innerHTML = availableDoctors.map(doctor => `
+        <div class="doctor-card bg-gradient-to-r from-white to-gray-50 rounded-2xl p-4 border border-gray-200 hover:shadow-lg transition-all duration-300 cursor-pointer" data-doctor-id="${doctor.doctorId}">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-sky-200 to-sky-300 rounded-2xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-sky-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-bold text-gray-800">${doctor.doctorName}</h4>
+              <p class="text-sky-600 font-medium">${doctor.department || ''}</p>
+              <div class="flex items-center gap-2 mt-1">
+                <div class="flex text-yellow-400">
+                  ${"★".repeat(Math.floor(doctor.rating || 0))}
+                </div>
+                <span class="text-sm text-gray-600">${doctor.rating || 0}/5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join("");
+      
+      // Add click listeners to doctor cards
+      document.querySelectorAll(".doctor-card").forEach(card => {
+        card.addEventListener("click", () => {
+          const doctorId = card.dataset.doctorId;
+          console.log('[PatientAppt] Doctor card clicked:', doctorId);
+          selectDoctor(doctorId);
+        });
+      });
+    }
+
+    function selectDoctor(doctorId) {
+      selectedDoctor = doctorsData.find(d => d.doctorId === doctorId);
+      console.log('[PatientAppt] Selected doctor:', selectedDoctor);
+      selectedSlot = null;
+      
+      // Update doctor card selection
+      document.querySelectorAll(".doctor-card").forEach(card => {
+        card.classList.remove("ring-2", "ring-sky-500", "bg-sky-50");
+        if (card.dataset.doctorId === doctorId) {
+          card.classList.add("ring-2", "ring-sky-500", "bg-sky-50");
+        }
+      });
+      
+      loadTimeSlots();
+      showDoctorDetails();
+    }
+
+    function loadTimeSlots() {
+      if (!selectedDate || !selectedDoctor) return;
+      
+      const timeSlotsDiv = document.getElementById("timeSlots");
+      const dateKey = getDateKey(selectedDate);
+      const slotsForDate = (selectedDoctor.slots && selectedDoctor.slots[dateKey]) ? selectedDoctor.slots[dateKey] : [];
+      console.log('[PatientAppt] Slots for doctor/date:', selectedDoctor.doctorId, dateKey, slotsForDate);
+      if (slotsForDate.length === 0) {
+        timeSlotsDiv.innerHTML = '<p class="text-gray-500 text-center py-4">No slots for this doctor on the selected date</p>';
+        return;
+      }
+      timeSlotsDiv.innerHTML = slotsForDate.map((slot, idx) => `
+        <button class="time-slot w-full p-3 bg-white border border-gray-300 rounded-xl hover:bg-sky-50 hover:border-sky-300 transition-all duration-200 font-medium" data-slot-index="${idx}">
+          ${slot.startTime} - ${slot.endTime} (${slot.duration} min)
+        </button>
+      `).join("");
+      
+      // Add click listeners to time slots
+      document.querySelectorAll(".time-slot").forEach(slotBtn => {
+        slotBtn.addEventListener("click", () => {
+          const index = parseInt(slotBtn.dataset.slotIndex);
+          const chosen = (selectedDoctor.slots && selectedDoctor.slots[dateKey]) ? selectedDoctor.slots[dateKey][index] : null;
+          console.log('[PatientAppt] Time slot clicked:', chosen);
+          selectTimeSlot(chosen, slotBtn);
+        });
+      });
+    }
+
+    function selectTimeSlot(slotObj, slotElement) {
+      selectedSlot = slotObj;
+      console.log('[PatientAppt] Selected slot:', selectedSlot);
+      
+      // Update time slot selection
+      document.querySelectorAll(".time-slot").forEach(slot => {
+        slot.classList.remove("bg-sky-600", "text-white", "border-sky-600");
+        slot.classList.add("bg-white", "border-gray-300");
+      });
+      
+      slotElement.classList.remove("bg-white", "border-gray-300");
+      slotElement.classList.add("bg-sky-600", "text-white", "border-sky-600");
+      
+      updateBookingButton();
+    }
+
+    function showDoctorDetails() {
+      if (!selectedDoctor) return;
+      console.log('[PatientAppt] Showing details for doctor:', selectedDoctor.doctorId);
+      
+      const doctorDetails = document.getElementById("doctorDetails");
+      doctorDetails.innerHTML = `
+        <div class="w-24 h-24 bg-gradient-to-br from-sky-200 to-sky-300 rounded-full mx-auto mb-4 flex items-center justify-center">
+          <svg class="w-12 h-12 text-sky-600" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <h4 class="text-lg font-bold text-gray-800 mb-2">${selectedDoctor.doctorName}</h4>
+        <div class="space-y-2 text-sm mb-6">
+          <p><span class="font-medium text-gray-700">${selectedDoctor.designation || ''}</span></p>
+          <p><span class="font-medium">Experience:</span> ${selectedDoctor.experience || ''}</p>
+          <p><span class="font-medium">Department:</span> ${selectedDoctor.department || ''}</p>
+          <p><span class="font-medium">Rating:</span> ${selectedDoctor.rating || 0}/5</p>
+          <p><span class="font-medium">Reviews:</span> ${(selectedDoctor.reviews && selectedDoctor.reviews.length) || 0}</p>
+          
+          <div class="flex justify-center mt-3">
+            <div class="flex text-yellow-400">
+              ${"★".repeat(Math.floor(selectedDoctor.rating || 0))}
+            </div>
+          </div>
+          
+          <div class="bg-sky-50 rounded-lg p-3 mt-4">
+            <p class="text-xs text-sky-700 font-medium">Dr. ${selectedDoctor.doctorName}</p>
+          </div>
+        </div>
+        
+        <button 
+          id="bookNowButton" 
+          class="w-full bg-gradient-to-r from-sky-600 to-sky-700 text-white py-3 rounded-xl font-semibold hover:from-sky-700 hover:to-sky-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          ${!selectedSlot ? 'disabled' : ''}
+        >
+          Book Now
+        </button>
+      `;
+      
+      // Add click listener to book now button
+      document.getElementById("bookNowButton").addEventListener("click", bookAppointment);
+    }
+
+    function clearTimeSlots() {
+      document.getElementById("timeSlots").innerHTML = '<p class="text-gray-500 text-center py-4">Please select a doctor first</p>';
+    }
+
+    function clearDoctorDetails() {
+      document.getElementById("doctorDetails").innerHTML = `
+        <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+          <svg class="w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <p class="text-gray-500 mb-6">Select a doctor to view details</p>
+        
+        <button 
+          id="bookNowButton" 
+          class="w-full bg-gradient-to-r from-sky-600 to-sky-700 text-white py-3 rounded-xl font-semibold hover:from-sky-700 hover:to-sky-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled
+        >
+          Book Now
+        </button>
+      `;
+    }
+
+    function updateBookingButton() {
+      const bookButton = document.getElementById("bookNowButton");
+      const findButton = document.getElementById("findButton");
+      
+      if (selectedDate && selectedDoctor && selectedSlot) {
+        bookButton.disabled = false;
+        findButton.disabled = false;
+      } else {
+        bookButton.disabled = true;
+        findButton.disabled = true;
+      }
+    }
+
+    function bookAppointment() {
+      if (!selectedDate || !selectedDoctor || !selectedSlot) return;
+      
+      // Persist booking in localStorage as an array of dictionaries
+      const appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+      const appointmentId = generateNextAppointmentId(appointments);
+      const patientId = localStorage.getItem('currentUser') || null;
+      const newAppointment = {
+        appointmentId: appointmentId,
+        doctorId: selectedDoctor.doctorId,
+        patientId: patientId,
+        date: formatDateDDMMYYYY(selectedDate),
+        time: selectedSlot.startTime,
+        status: 'confirmed'
+      };
+      appointments.push(newAppointment);
+      localStorage.setItem('appointments', JSON.stringify(appointments));
+      console.log('[PatientAppt] Booking appointment:', newAppointment);
+
+      // Show success modal
+      document.getElementById("successModal").classList.remove("hidden");
+      
+      // Reset selections
+      selectedDate = null;
+      selectedDoctor = null;
+      selectedSlot = null;
+      
+      // Clear form
+      generateCalendar(currentMonth, currentYear);
+      document.getElementById("doctorsList").innerHTML = '<p class="text-gray-500 text-center py-8">Please select a date to see available doctors</p>';
+      clearTimeSlots();
+      clearDoctorDetails();
+      document.getElementById("patientConcern").value = "";
+    }
+
+    // Calendar navigation
+    document.getElementById("prevMonth").addEventListener("click", () => {
+      currentMonth--;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      }
+      generateCalendar(currentMonth, currentYear);
+    });
+
+    document.getElementById("nextMonth").addEventListener("click", () => {
+      currentMonth++;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      generateCalendar(currentMonth, currentYear);
+    });
+
+    // Search functionality
+    document.getElementById("doctorSearch").addEventListener("input", (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      const doctorCards = document.querySelectorAll(".doctor-card");
+      
+      doctorCards.forEach(card => {
+        const doctorName = card.querySelector("h4").textContent.toLowerCase();
+        const department = card.querySelector(".text-sky-600").textContent.toLowerCase();
+        
+        if (doctorName.includes(searchTerm) || department.includes(searchTerm)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+
+    // Find button functionality
+    document.getElementById("findButton").addEventListener("click", bookAppointment);
+
+    // Modal functionality
+    document.getElementById("closeModal").addEventListener("click", () => {
+      document.getElementById("successModal").classList.add("hidden");
+    });
+
+    // Initialize calendar with current date
+    generateCalendar(currentMonth, currentYear);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GENCARE - Reviews</title>
+  <link rel="icon" type="image/png" href="../../assets/logo/LogoSmall.png">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gradient-to-br from-sky-100 to-white min-h-screen font-poppins">
+  <!-- Fixed Left Sidebar -->
+  <div class="flex flex-col fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-sky-700 via-sky-600 to-sky-800 shadow-xl z-50">
+    <div class="px-6 py-3 border-b border-sky-500/30">
+      <div class="flex items-center gap-3">
+        <img src="../../assets/logo/LogoSmall.png" class="w-12 h-12">
+        <h1 class="text-xl font-bold text-white">GENCARE</h1>
+      </div>
+    </div>
+    <nav class="flex flex-col px-4 mt-1">
+      <div onclick="window.location.href='../dashboard/doctorDashboard.html'" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5v4"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 5v4"/></svg>Dashboard</div>
+      <div onclick="window.location.href='../scheduleManagement/doctorSchedule.html'" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Schedule Management</div>
+      <div onclick="window.location.href='../appointmentBooking/doctorAppointment.html'" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>Appointments</div>
+
+      <div class="px-4 py-3 bg-white/20 text-white rounded-xl shadow-md backdrop-blur-sm font-medium flex items-center gap-3 cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>Reviews</div>
+      <div onclick="window.location.href='../report/doctorReport.html'" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V5a2 2 0 012-2h6a2 2 0 012 2v14m-6 0H7a2 2 0 01-2-2v-5"/></svg>Report</div>
+    </nav>
+    <div class="absolute bottom-0 left-0 right-0 p-4 border-sky-500/30">
+      <button class="flex gap-1 text-sky-100 items-center w-full px-6 py-2 rounded-xl hover:bg_white/20 hover:text-white hover:bg-white/20 my-2 hover:shadow-md transition-all duration-300 cursor-pointer"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Help</button>
+      <div class="relative">
+        <div id="profileButton" class="w-full flex items-center gap-3 p-3 bg-white/20 rounded-xl backdrop-blur-sm cursor-pointer hover:bg-white/30 transition-all duration-300">
+          <div class="w-10 h-10 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+          </div>
+          <div class="text-white font-medium">Doctor</div>
+          <svg class="w-4 h-4 text-white ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        
+        <div id="profileDropdown" class="hidden absolute bottom-16 left-0 right-0 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+          <button onclick="window.location.href='../profile/doctorProfile.html'" class="w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-50 transition-colors duration-200 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            Profile
+          </button>
+          <button onclick="logout()" class="w-full px-4 py-2 text-left text-red-600 hover:bg-red-50 transition-colors duration-200 flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content shifted for sidebar -->
+  <div class="ml-64">
+  <section class="px-8 py-6">
+    <div class="mb-2">
+      <h2 class="text-3xl font-bold text-gray-800">Reviews</h2>
+      <p class="text-gray-600">Browse and filter your patient reviews</p>
+    </div>
+    <div class="bg-white/60 backdrop-blur-xl rounded-3xl shadow-xl border border-white/30 overflow-hidden">
+      
+      <!-- Header Section -->
+      <div class="bg-gradient-to-r from-sky-600 to-blue-600 text-white p-6">
+        <div class="flex justify-between items-center">
+          <h1 class="text-2xl font-bold">Reviews</h1>
+          <div class="flex gap-3">
+            <!-- Date Filter -->
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              <input type="date" id="dateFilter" class="px-3 py-2 bg-white/20 rounded-lg text-white placeholder-white/70 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 text-sm backdrop-blur-sm">
+            </div>
+            <!-- Search -->
+            <button class="px-4 py-2 bg-white/20 rounded-lg hover:bg-white/30 transition-all duration-300 text-sm font-medium backdrop-blur-sm border border-white/30 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              Search
+            </button>
+            <!-- Filter Options -->
+            <button id="filterButton" class="px-4 py-2 bg-white/20 rounded-lg hover:bg-white/30 transition-all duration-300 text-sm font-medium backdrop-blur-sm border border-white/30 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.207A1 1 0 013 6.5V4z"/>
+              </svg>
+              Filter
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reviews Grid -->
+      <div class="p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Review Card 1 -->
+          <div class="review-card bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300" data-date="2024-03-24">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 bg-gradient-to-br from-sky-200 to-sky-300 rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8 text-sky-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-2">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                </div>
+                <p class="text-sm text-gray-600 font-medium">Patient ID: <span class="text-sky-700">P101</span></p>
+                <p class="font-bold text-gray-800">John Smith</p>
+                <p class="text-xs text-gray-500 mt-1">Date: 24/3/24</p>
+              </div>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-3 mb-3">
+              <p class="text-sm text-gray-700 italic">"Had a great experience with the consultation. Very professional and thorough examination."</p>
+            </div>
+          </div>
+
+          <!-- Review Card 2 -->
+          <div class="review-card bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300" data-date="2024-03-22">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 bg-gradient-to-br from-purple-200 to-purple-300 rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-2">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/nostar.png" class="w-4 h-4">
+                </div>
+                <p class="text-sm text-gray-600 font-medium">Patient ID: <span class="text-sky-700">P201</span></p>
+                <p class="font-bold text-gray-800">Sarah Wilson</p>
+                <p class="text-xs text-gray-500 mt-1">Date: 22/3/24</p>
+              </div>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-3 mb-3">
+              <p class="text-sm text-gray-700 italic">"Excellent service and care. The doctor was very attentive and explained everything clearly."</p>
+            </div>
+          </div>
+
+          <!-- Review Card 3 -->
+          <div class="review-card bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300" data-date="2024-03-20">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 bg-gradient-to-br from-green-200 to-green-300 rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-2">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                </div>
+                <p class="text-sm text-gray-600 font-medium">Patient ID: <span class="text-sky-700">P301</span></p>
+                <p class="font-bold text-gray-800">Michael Brown</p>
+                <p class="text-xs text-gray-500 mt-1">Date: 20/3/24</p>
+              </div>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-3 mb-3">
+              <p class="text-sm text-gray-700 italic">"Outstanding treatment and follow-up care. Highly recommend this doctor to anyone."</p>
+            </div>
+          </div>
+
+          <!-- Review Card 4 -->
+          <div class="review-card bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300" data-date="2024-09-21">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 bg-gradient-to-br from-yellow-200 to-yellow-300 rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-2">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/nostar.png" class="w-4 h-4">
+                  <img src="../../assets/logo/nostar.png" class="w-4 h-4">
+                </div>
+                <p class="text-sm text-gray-600 font-medium">Patient ID: <span class="text-sky-700">P401</span></p>
+                <p class="font-bold text-gray-800">Emma Davis</p>
+                <p class="text-xs text-gray-500 mt-1">Date: Today</p>
+              </div>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-3 mb-3">
+              <p class="text-sm text-gray-700 italic">"Good consultation but had to wait longer than expected. Overall satisfied with the treatment."</p>
+            </div>
+          </div>
+
+          <!-- Review Card 5 -->
+          <div class="review-card bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300" data-date="2024-03-16">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 bg-gradient-to-br from-pink-200 to-pink-300 rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-2">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                </div>
+                <p class="text-sm text-gray-600 font-medium">Patient ID: <span class="text-sky-700">P501</span></p>
+                <p class="font-bold text-gray-800">Lisa Johnson</p>
+                <p class="text-xs text-gray-500 mt-1">Date: 16/3/24</p>
+              </div>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-3 mb-3">
+              <p class="text-sm text-gray-700 italic">"Amazing bedside manner and expertise. Made me feel comfortable throughout the entire process."</p>
+            </div>
+          </div>
+
+          <!-- Review Card 6 -->
+          <div class="review-card bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300" data-date="2024-03-14">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-16 h-16 bg-gradient-to-br from-indigo-200 to-indigo-300 rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-2">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/star.png" class="w-4 h-4">
+                  <img src="../../assets/logo/nostar.png" class="w-4 h-4">
+                </div>
+                <p class="text-sm text-gray-600 font-medium">Patient ID: <span class="text-sky-700">P601</span></p>
+                <p class="font-bold text-gray-800">Robert Miller</p>
+                <p class="text-xs text-gray-500 mt-1">Date: 14/3/24</p>
+              </div>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-3 mb-3">
+              <p class="text-sm text-gray-700 italic">"Professional service with detailed explanations. The doctor took time to answer all my questions."</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+          <div class="text-sm text-gray-600">
+            <span id="reviewCount">4/50</span>
+          </div>
+          <div class="flex gap-2">
+            <button class="px-4 py-2 text-gray-600 hover:text-sky-700 transition-all duration-300 text-sm">Previous</button>
+            <button class="px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-medium">1</button>
+            <button class="px-4 py-2 text-gray-600 hover:text-sky-700 transition-all duration-300 text-sm">2</button>
+            <button class="px-4 py-2 text-gray-600 hover:text-sky-700 transition-all duration-300 text-sm">3</button>
+            <button class="px-4 py-2 text-gray-600 hover:text-sky-700 transition-all duration-300 text-sm">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <script>
+    function logout(){
+      const confirmed = confirm("Are you sure you want to log out?");
+      if(confirmed){
+        window.location.href="../../../index.html"
+      }
+    }
+    // Profile dropdown functionality
+    document.getElementById("profileButton").addEventListener("click", (e) => {
+      e.stopPropagation();
+      document.getElementById("profileDropdown").classList.toggle("hidden");
+    });
+    document.addEventListener("click", () => {
+      document.getElementById("profileDropdown").classList.add("hidden");
+    });
+
+    // Filter button functionality (placeholder)
+    document.getElementById('filterButton').addEventListener('click', () => {
+      console.log('Filter button clicked');
+      // Add filter dropdown logic here
+    });
+
+    // Search functionality (placeholder)
+    document.querySelector('button').addEventListener('click', (e) => {
+      if (e.target.closest('button').textContent.includes('Search')) {
+        console.log('Search button clicked');
+        // Add search logic here
+      }
+    });
+  </script>
+
+</body>
+</html>

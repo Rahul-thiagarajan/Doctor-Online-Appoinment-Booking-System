@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GENCARE - Dashboard</title>
+  <link rel="icon" type="image/png" href="../../assets/logo/LogoSmall.png">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gradient-to-br from-sky-100 to-white min-h-screen font-poppins">
+  <!-- Fixed Left Sidebar (match patient profile) -->
+  <div class="flex flex-col fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-sky-700 via-sky-600 to-sky-800 shadow-xl z-50">
+    <!-- Logo Section -->
+    <div class="px-6 py-3 border-b border-sky-500/30">
+      <div class="flex items-center gap-3">
+        <img src="../../assets/logo/LogoSmall.png" alt="Logo" class="h-12 w-12 object-contain">
+        <h1 class="text-xl font-bold text-white">GENCARE</h1>
+      </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="flex flex-col px-4 mt-1">
+      <div class="px-4 py-3 bg-white/20 text-white rounded-xl shadow-md backdrop-blur-sm font-medium flex items-center gap-3 cursor-pointer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5v4"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 5v4"></path>
+        </svg>
+        Dashboard
+      </div>
+
+
+      <div onclick="window.location.href='../appointmentBooking/patientAppointment.html'" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+        Book Appointment
+      </div>
+      <div onclick="window.location.href=`../appointmentBooking/patientBookings.html`" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+        My Bookings
+      </div>
+
+      <div onclick="window.location.href=`../report/patientReport.html`" class="px-4 py-3 text-sky-100 rounded-xl hover:bg-white/20 hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer font-medium flex items-center gap-3">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6a2 2 0 012-2h6m2 2v13a2 2 0 01-2 2H9m0 0H7a2 2 0 01-2-2V9"></path>
+        </svg>
+        Reports
+      </div>
+
+      <div onclick="window.location.href=`../reviews/patientReview.html`" class="px-4 py-3 hover:bg-white/20 rounded-xl hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer text-sky-100 font-medium flex items-center gap-3 cursor-pointer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292A1 1 0 0015.97 7.91h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L4.98 9.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+        </svg>
+        Reviews
+      </div>
+    </nav>
+
+    <!-- Profile Section at Bottom -->
+    <div class="absolute bottom-0 left-0 right-0 p-4 border-sky-500/30">
+      <button class="flex gap-1 text-sky-100 items-center w-full px-6 py-2 rounded-xl hover:bg_white/20 hover:text-white hover:bg-white/20 my-2 hover:shadow-md transition-all duration-300 cursor-pointer">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        Help
+      </button>
+      <div class="relative">
+        <div id="profileButton" class="w-full flex items-center gap-3 p-3 bg-white/20 rounded-xl backdrop-blur-sm cursor-pointer hover:bg-white/30 transition-all duration-300">
+          <div class="w-10 h-10 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full flex items-center justify-center">
+            <img src="../../assets/images/profile.png" class="w-6 h-6" alt="Profile">
+          </div>
+          <div class="text-white font-medium">Patient</div>
+          <svg class="w-4 h-4 text-white ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+
+        <div id="profileDropdown" class="hidden absolute bottom-16 left-0 right-0 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+          <button onclick="window.location.href='../profile/patientProfile.html'" class="w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-50 transition-colors duration-200 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+            Profile
+          </button>
+          <button onclick="logout()" class="w-full px-4 py-2 text-left text-red-600 hover:bg-red-50 transition-colors duration-200 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+            </svg>
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Dashboard Content shifted for sidebar -->
+  <div class="ml-64">
+  <section class="px-8 py-6">
+    <div class="mb-2">
+      <h2 class="text-3xl font-bold text-gray-800">Dashboard</h2>
+      <p class="text-gray-600">Your health overview and quick actions</p>
+    </div>
+    
+    <!-- Welcome Section -->
+    <div class="mb-8">
+      <div class="bg-gradient-to-r from-sky-600 to-blue-700 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-32 translate-x-32"></div>
+        <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-24 -translate-x-24"></div>
+        <div class="relative z-10">
+          <h1 class="text-3xl font-bold mb-2">Welcome back, John!</h1>
+          <p class="text-sky-100 text-lg">Hope you're having a great day. Here's your health summary.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      <!-- Upcoming Appointments -->
+      <div class="bg-white/60 backdrop-blur-md rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-gray-600 font-medium mb-2">Appointments Today</h3>
+            <p class="text-4xl font-bold text-blue-600">3</p>
+          </div>
+          <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center">
+            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medical Records -->
+      <div class="bg-white/60 backdrop-blur-md rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-gray-600 font-medium mb-2">Medical Records</h3>
+            <p class="text-4xl font-bold text-green-600">12</p>
+          </div>
+          <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center">
+            <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Health Score -->
+      <div class="bg-white/60 backdrop-blur-md rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-gray-600 font-medium mb-2">Health Score</h3>
+            <p class="text-4xl font-bold text-orange-600">85%</p>
+          </div>
+          <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center">
+            <svg class="w-7 h-7 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+      
+      <!-- Upcoming Appointments -->
+      <div class="lg:col-span-2 bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/30 p-6">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-bold text-gray-800">Upcoming Appointments</h2>
+          <button class="px-4 py-2 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-all duration-300 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+            </svg>
+            Book New
+          </button>
+        </div>
+        
+        <div class="space-y-4">
+          <!-- Appointment Card 1 -->
+          <div class="bg-gradient-to-r from-white to-gray-50 rounded-2xl p-5 border border-gray-200 hover:shadow-lg transition-all duration-300">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="w-16 h-16 bg-gradient-to-br from-sky-200 to-sky-300 rounded-2xl flex items-center justify-center">
+                  <svg class="w-8 h-8 text-sky-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-800 text-lg">Dr. Sarah Wilson</h3>
+                  <p class="text-sky-600 font-medium">Cardiology</p>
+                  <div class="flex items-center gap-4 mt-2 text-sm text-gray-600">
+                    <span class="flex items-center gap-1">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                      </svg>
+                      March 25, 2024
+                    </span>
+                    <span class="flex items-center gap-1">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                      10:30 AM
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <button class="px-4 py-2 bg-blue-100 text-blue-600 rounded-xl hover:bg-blue-200 transition-all duration-300">Reschedule</button>
+                <button class="px-4 py-2 bg-red-100 text-red-600 rounded-xl hover:bg-red-200 transition-all duration-300">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions & Health Reminders -->
+      <div class="space-y-6">
+        
+        <!-- Quick Actions -->
+        <div class="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/30 p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-4">Quick Actions</h3>
+          <div class="space-y-3">
+            <button onclick="window.location.href='../appointmentBooking/patientAppointment.html'" class="w-full p-4 bg-gradient-to-r from-sky-500 to-sky-600 text-white rounded-xl hover:from-sky-600 hover:to-sky-700 transition-all duration-300 flex items-center gap-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              Book Appointment
+            </button>
+            <button onclick="window.location.href='../report/patientReport.html'" class="w-full p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl hover:from-green-600 hover:to-green-700 transition-all duration-300 flex items-center gap-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              View Records
+            </button>
+            <button onclick="window.location.href='../reviews/patientReview.html'" class="w-full p-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl hover:from-purple-600 hover:to-purple-700 transition-all duration-300 flex items-center gap-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+              </svg>
+              Add Review
+            </button>
+          </div>
+        </div>
+
+        <!-- Health Reminders -->
+        <div class="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/30 p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-4">Health Reminders</h3>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3 p-3 bg-yellow-50 rounded-xl border border-yellow-200">
+              <div class="w-8 h-8 bg-yellow-400 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <p class="font-medium text-gray-800">Take medication</p>
+                <p class="text-sm text-gray-600">Metformin - 2:00 PM</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-xl border border-blue-200">
+              <div class="w-8 h-8 bg-blue-400 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <p class="font-medium text-gray-800">Blood test due</p>
+                <p class="text-sm text-gray-600">Within 2 weeks</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 p-3 bg-green-50 rounded-xl border border-green-200">
+              <div class="w-8 h-8 bg-green-400 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <p class="font-medium text-gray-800">Exercise goal</p>
+                <p class="text-sm text-gray-600">30 min walking today</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Recent Activity & Health Insights -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <!-- Recent Activity -->
+      <div class="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/30 p-6">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">Notifications</h3>
+        <div class="space-y-4">
+          <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200">
+            <div class="w-12 h-12 bg-gradient-to-br from-blue-200 to-blue-300 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-gray-800">Blood Test Results Uploaded</p>
+              <p class="text-sm text-gray-600">Dr. Sarah Wilson • 2 hours ago</p>
+            </div>
+            <span class="text-xs text-gray-500">New</span>
+          </div>
+
+          <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200">
+            <div class="w-12 h-12 bg-gradient-to-br from-green-200 to-green-300 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-gray-800">Appointment Confirmed</p>
+              <p class="text-sm text-gray-600">Dr. Michael Chen • Yesterday</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200">
+            <div class="w-12 h-12 bg-gradient-to-br from-purple-200 to-purple-300 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-gray-800">New Prescription Added</p>
+              <p class="text-sm text-gray-600">Dr. Emily Rodriguez • 3 days ago</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200">
+            <div class="w-12 h-12 bg-gradient-to-br from-orange-200 to-orange-300 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-gray-800">Review Submitted</p>
+              <p class="text-sm text-gray-600">For Dr. Sarah Wilson • 1 week ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Health Insights -->
+      <div class="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/30 p-6">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">Health Insights</h3>
+        
+        <!-- Health Score Progress -->
+        <div class="mb-6">
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="font-semibold text-gray-800">Overall Health Score</h4>
+            <span class="text-2xl font-bold text-orange-600">85%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-3 mb-2">
+            <div class="bg-gradient-to-r from-orange-400 to-orange-600 h-3 rounded-full" style="width: 85%"></div>
+          </div>
+          <p class="text-sm text-gray-600">Excellent! Up 5% from last month</p>
+        </div>
+
+        <!-- Vital Signs -->
+        <div class="space-y-4">
+          <div class="flex items-center justify-between p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-gradient-to-br from-red-200 to-red-300 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-medium text-gray-800">Blood Pressure</p>
+                <p class="text-sm text-gray-600">Last: 120/80 mmHg</p>
+              </div>
+            </div>
+            <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium">Normal</span>
+          </div>
+
+          <div class="flex items-center justify-between p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-gradient-to-br from-blue-200 to-blue-300 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-medium text-gray-800">Blood Sugar</p>
+                <p class="text-sm text-gray-600">Last: 95 mg/dL</p>
+              </div>
+            </div>
+            <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium">Normal</span>
+          </div>
+
+          <div class="flex items-center justify-between p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-gradient-to-br from-green-200 to-green-300 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-medium text-gray-800">Cholesterol</p>
+                <p class="text-sm text-gray-600">Last: 180 mg/dL</p>
+              </div>
+            </div>
+            <span class="px-3 py-1 bg-yellow-100 text-yellow-600 rounded-full text-sm font-medium">Monitor</span>
+          </div>
+        </div>
+
+        <!-- Health Tips -->
+        <div class="mt-6 p-4 bg-gradient-to-r from-sky-50 to-blue-50 rounded-xl border border-sky-200">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-sky-400 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h5 class="font-semibold text-gray-800 mb-1">Today's Tip</h5>
+              <p class="text-sm text-gray-700">Stay hydrated! Aim for 8 glasses of water daily to maintain optimal health and energy levels.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+  <script>
+    function logout(){
+      const confirmed = confirm("Are you sure you want to log out?");
+      if(confirmed){
+        window.location.href="../../../index.html"
+      }
+    }
+    console.log(localStorage.getItem("currentUser"));
+    //profile dropdown functionality
+    document.getElementById("profileButton").addEventListener("click", (e) => {
+      e.stopPropagation();
+      document.getElementById("profileDropdown").classList.toggle("hidden");
+    });
+    
+    document.addEventListener("click", () => {
+      document.getElementById("profileDropdown").classList.add("hidden");
+    });
+
+    // Add smooth hover animations
+    const cards = document.querySelectorAll('.hover\\:shadow-xl, .hover\\:shadow-lg, .hover\\:shadow-2xl');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-2px)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+    });
+
+    // Simulate real-time updates for health score
+    const healthScoreElements = document.querySelectorAll('.text-orange-600');
+    let currentScore = 85;
+    
+    setInterval(() => {
+      const change = Math.random() > 0.5 ? 1 : -1;
+      if (currentScore + change >= 70 && currentScore + change <= 95) {
+        currentScore += change;
+        healthScoreElements.forEach(element => {
+          if (element.textContent.includes('%')) {
+            element.textContent = currentScore + '%';
+          }
+        });
+        // Update progress bar width
+        const progressBar = document.querySelector('.bg-gradient-to-r.from-orange-400');
+        if (progressBar) {
+          progressBar.style.width = currentScore + '%';
+        }
+      }
+    }, 10000); // Update every 10 seconds
+
+    // Add click animations to quick action buttons
+    const quickActionButtons = document.querySelectorAll('.bg-gradient-to-r');
+    quickActionButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        // Create ripple effect
+        const ripple = document.createElement('div');
+        ripple.style.position = 'absolute';
+        ripple.style.borderRadius = '50%';
+        ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+        ripple.style.transform = 'scale(0)';
+        ripple.style.animation = 'ripple 0.6s linear';
+        ripple.style.left = (e.clientX - this.offsetLeft - 25) + 'px';
+        ripple.style.top = (e.clientY - this.offsetTop - 25) + 'px';
+        ripple.style.width = '50px';
+        ripple.style.height = '50px';
+        
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+
+    // Add CSS animation for ripple effect
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes ripple {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+
+</body>
+</html>
