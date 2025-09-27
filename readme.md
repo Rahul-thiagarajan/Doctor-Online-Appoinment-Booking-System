@@ -1,56 +1,126 @@
-Project Title
-One Paragraph of project description goes here
+# Doctor Online Appointment Booking System
 
-Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+A simple web-based application for booking doctor appointments online. The system is built using **HTML**, **Tailwind CSS**, and **JavaScript**. It provides features like doctor scheduling, appointment booking, profile management, reviews, reporting, and data backup/recovery.
 
-Prerequisites
-What things you need to install the software and how to install them
+The application initializes with predefined startup data (users, doctors, patients) from `Data.html`. This must be run separately once to populate the browser's **localStorage** before using the app.
 
-Give examples
-Installing
-A step by step series of examples that tell you how to get a development env running
+---
 
-Say what the step will be
+## Getting Started
 
-Give the example
-And repeat
+These instructions will help you set up and run the project on your local machine for development and testing.
 
-until finished
-End with an example of getting some data out of the system or using it for a little demo
+### Prerequisites
 
-Running the tests
-Explain how to run the automated tests for this system
+* A modern web browser (Chrome, Edge, Firefox, etc.)
+* A code editor like **VS Code** (optional, for development)
+* No server installation required (pure frontend project).
 
-Break down into end to end tests
-Explain what these tests test and why
+### Installing & Setup
 
-Give an example
-And coding style tests
-Explain what these tests test and why
+1. Clone or download the project.
 
-Give an example
-Deployment
-Add additional notes about how to deploy this on a live system
+   ```bash
+   git clone https://github.com/Rahul-thiagarajan/Doctor-Online-Appoinment-Booking-System
+   cd Doctor-Online-Appoinment-Booking-System
+   ```
 
-Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+2. **If you have VS Code (recommended):**
 
-Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
+   * Open the project in VS Code.
+   * Install the **Live Server** extension.
+   * Right-click `index.html` → **Open with Live Server**.
 
-Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
+3. **If you don’t have VS Code:**
 
-License
-This project is licensed under the MIT License - see the LICENSE.md file for details
+   * Simply open the files directly in your browser.
+   * First, double-click `Data.html` to load startup data into localStorage.
+   * Then, double-click `index.html` to launch the app.
 
-Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
+Example: After running `Data.html`, open Developer Tools → Application → Local Storage to see the loaded users, doctors, and patients.
+
+---
+
+## Running the Tests
+
+### End-to-End Tests
+
+These tests check the complete workflow of booking an appointment.
+Example:
+
+* User logs in → Selects doctor → Books an appointment → Confirmation is stored in localStorage.
+
+### Coding Style Tests
+
+The project follows:
+
+* Consistent **Tailwind CSS** utility classes for styling
+* Modular **JavaScript** functions for each feature
+* LocalStorage-based mock database
+
+---
+
+## Deployment
+
+This is a static web app. You can deploy it easily on:
+
+* **GitHub Pages**
+* **Netlify**
+* **Vercel**
+
+Steps (example for GitHub Pages):
+
+1. Push project to a GitHub repository.
+2. Go to repo settings → Pages → Deploy from `main` branch → Save.
+3. Your project will be live at:
+
+   ```
+   https://<username>.github.io/doctor-appointment-booking/
+   ```
+
+---
+
+## Built With
+
+* **HTML5** – Page structure
+* **Tailwind CSS** – Styling framework
+* **JavaScript (ES6)** – Application logic
+* **LocalStorage** – Data persistence
+
+---
+
+## Authors
+
+* **Rahul Thiagarajan** – Initial Work & Development
+
+---
+
+## Acknowledgments
+
+* Tailwind CSS for making styling fast and responsive
+* Inspiration from real-world hospital appointment systems
+* All contributors and testers who supported this project
+
+---
+
+## Login Credentials
+
+After loading `Data.html`, you can log in with the following sample accounts:
+
+### Admin
+
+* **Email:** `admin1@gencare.com`
+* **Password:** `Admin@123`
+
+### Doctors
+
+* **Email:** `doctor1@gencare.com` | **Password:** `Doc@123`
+* **Email:** `doctor2@gencare.com` | **Password:** `Doc@123`
+
+### Patients
+
+* **Email:** `patient1@gencare.com` | **Password:** `Pat@123`
+* **Email:** `patient2@gencare.com` | **Password:** `Pat@123`
+* **Email:** `patient3@gencare.com` | **Password:** `Pat@123`
+
+---
