@@ -60,25 +60,6 @@ The project follows:
 
 ---
 
-## Deployment
-
-This is a static web app. You can deploy it easily on:
-
-* **GitHub Pages**
-* **Netlify**
-* **Vercel**
-
-Steps (example for GitHub Pages):
-
-1. Push project to a GitHub repository.
-2. Go to repo settings → Pages → Deploy from `main` branch → Save.
-3. Your project will be live at:
-
-   ```
-   https://<username>.github.io/doctor-appointment-booking/
-   ```
-
----
 
 ## Built With
 
